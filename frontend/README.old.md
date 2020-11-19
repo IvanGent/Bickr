@@ -254,7 +254,7 @@ export async function fetch(url, options = {}) {
   options.headers = options.headers || {};
 
   // if the options.method is not 'GET', then set the "Content-Type" header to
-    // "application/json", and set the "CSRF-TOKEN" header to the value of the 
+    // "application/json", and set the "CSRF-TOKEN" header to the value of the
     // "XSRF-TOKEN" cookie
   if (options.method.toUpperCase() !== 'GET') {
     options.headers['Content-Type'] =
@@ -402,7 +402,7 @@ window.csrfFetch('/api/test', {
 }).then(res => console.log(res.data));
 ```
 
-If you see an object with a key of `user` logged in the terminal, then you
+If you see an object with a key of `requestBody` logged in the terminal, then you
 successfully set up CSRF protection on the frontend. If you don't then check
 your syntax in the `frontend/src/store/csrf.js` and the `frontend/src/index.js`.
 
@@ -1395,12 +1395,12 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -1409,7 +1409,7 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
