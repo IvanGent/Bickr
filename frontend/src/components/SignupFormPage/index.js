@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom';
 const SignupFormPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const SignupFormPage = () => {
     e.preventDefault();
     if(password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({email, username, password}))
+      return dispatch(sessionActions.signup({email, firstName, lastName, password}))
         .catch(res => {
           if(res.data && res.data.errors) setErrors(res.data.errors);
         })
@@ -31,13 +32,21 @@ const SignupFormPage = () => {
       <ul>
        {errors.map((error, i) => <li key={i}>{error}</li>)}
       </ul>
-      <label>Username
+      <label>First Name
         <input
           type='text'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           required
         />
+      </label>
+      <label>Last Name
+        <input
+        type='text'
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+        required
+      />
       </label>
       <label>Email
         <input
