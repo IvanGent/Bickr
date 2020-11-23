@@ -1,0 +1,22 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  background-color: blue;
+  align-items: center;
+  height: 90vh;
+  color: white;
+}
+
+.homepage h1 {
+  margin-top: 330px;
+  font-size: 45px;
+}
+
+.homepage h2 {
+  margin-top: 10px;
+}
+
+.homepage > a {
+  margin-bottom: 442px;
+}
