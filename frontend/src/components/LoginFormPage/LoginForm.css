@@ -88,4 +88,5 @@ button:hover {
   color: black;
   background-color: lightgray;
   cursor: pointer;
+  border-radius: 2%;
 }
