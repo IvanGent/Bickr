@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import './LoginForm.css'
+import './Navigation.css'
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const LoginFormPage = () => {
             <div className='formCircleOne'></div>
             <div className='formCircleTwo'></div>
           </div>
-          <h3>Login With Account</h3>
+          <h3>Login with an ccount</h3>
         </div>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

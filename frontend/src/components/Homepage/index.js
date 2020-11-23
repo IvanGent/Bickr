@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from '../Footer';
 import './Homepage.css'
+import '../Navigation/Navigation.css'
 
 const Homepage = () => {
   const sessionUser = useSelector(state => state.session.user)

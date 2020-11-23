@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  /* position: absolute; */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  background-color: black;
+}
+nav li {
+  list-style-type: none;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.home {
+  font-size: 26px;
+  margin-left: 50px;
+  color: white;
+}
+
+a.home:hover {
+  cursor: pointer;
+}
+
+.firstBall {
+  position: absolute;
+  background-color: #FF0084;
+  width: 9px;
+  height:  9px;
+  margin-left: 25px;
+  border-radius: 50%;
+}
+
+.secondBall {
+  position: absolute;
+  background-color: #0063DC;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-left: 37px;
+}
+
+.sessionLinks {
+  /* background-color: burlywood; */
+  width: 210px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 9px;
+  margin-right: 20px;
+}
+
+.login {
+  color: white;
+  font-size: 16px;
+  margin-top: 6px;
+
+}
+
+.signUp {
+  color: black;
+  background-color: white;
+  padding: 4px 20px;
+  font-size: 16px;
+  border-radius: 5%;
+}
+
+.signUp:hover {
+  transition: 500ms;
+  color: gray;
+}
