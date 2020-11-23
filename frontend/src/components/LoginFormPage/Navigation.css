@@ -5,13 +5,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
-nav {
+.login {
   /* position: absolute; */
   height: 60px;
   display: flex;
   align-items: center;
   /* background-color: rgba(0, 0, 0, 0.2); */
-  background-color: black;
+  /* background-color: black; */
 }
 nav li {
   list-style-type: none;

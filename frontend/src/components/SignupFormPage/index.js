@@ -29,52 +29,63 @@ const SignupFormPage = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-       {errors.map((error, i) => <li key={i}>{error}</li>)}
-      </ul>
-      <label>First Name
+    <div className='signupContainer'>
+      <form onSubmit={handleSubmit}>
+        <div className='formHeader'>
+          <div className='circleContainer'>
+            <div className='formCircleOne'></div>
+            <div className='formCircleTwo'></div>
+          </div>
+          <h3>Sign up for Bickr</h3>
+        </div>
+        <ul>
+         {errors.map((error, i) => <li key={i}>{error}</li>)}
+        </ul>
+        {/* <label>First Name</label> */}
         <input
           type='text'
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
+          placeholder='First Name'
           required
         />
-      </label>
-      <label>Last Name
+        {/* <label>Last Name</label> */}
         <input
         type='text'
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
+        placeholder='Last Name'
         required
-      />
-      </label>
-      <label>Email
+        />
+        {/* <label>Email</label> */}
         <input
           type='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder='Email'
           required
-          />
-      </label>
-      <label>Password
+        />
+        {/* <label>Password</label> */}
         <input
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder='Password'
           required
         />
-      </label>
-      <label>Confirm Password
+        {/* <label>Confirm Password</label> */}
         <input
           type='password'
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder='Confirm Password'
           required
         />
-      </label>
-      <button type='submit'>Sign Up</button>
-    </form>
+        <div className='buttonDiv'>
+          <button type='submit'>Sign Up</button>
+        </div>
+      </form>
+    </div>
   )
 }
 

@@ -20,7 +20,8 @@ if(process.env.NODE_ENV !== 'production') {
 
 
 
-function Root() {
+function Root(props) {
+  console.log(props)
   return (
     <Provider store={store}>
       <BrowserRouter>

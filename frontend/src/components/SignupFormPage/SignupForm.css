@@ -1,0 +1,15 @@
+.signupContainer {
+  background-color: red;
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupContainer form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+  border-radius: 1%;
+}

@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+
 // import './Navigation.css';
 
-function Navigation({ isLoaded }) {
+function Navigation(props, { isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
-
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav>
+    <nav className='login'>
       <ul>
         <li>
           <p className='firstBall'></p>
