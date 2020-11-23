@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import './LoginForm.css'
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
@@ -25,28 +26,39 @@ const LoginFormPage = () => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>Email
+    <div className='loginContainer'>
+      <form onSubmit={handleSubmit}>
+        <div className='formHeader'>
+          <div className='circleContainer'>
+            <div className='formCircleOne'></div>
+            <div className='formCircleTwo'></div>
+          </div>
+          <h3>Login With Account</h3>
+        </div>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        {/* <label>Email</label> */}
         <input
           type='text'
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
+          placeholder='Email'
           required
         />
-      </label>
-      <label>Password
+        {/* <label>Password</label> */}
         <input
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder='Password'
           required
         />
-      </label>
-      <button type='submit'>Log In</button>
-    </form>
+        <div className='buttonDiv'>
+          <button type='submit'>Log In</button>
+        </div>
+      </form>
+    </div>
   )
 }
 
