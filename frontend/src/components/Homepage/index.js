@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from '../Footer';
 import './Homepage.css'
@@ -12,7 +13,7 @@ const Homepage = () => {
       <div className='homepage'>
         <h1>Find your inspiration.</h1>
         <h2>Join the Bickr community, home to a few photos</h2>
-        <a href='/signup'>Start for free</a>
+        <NavLink to='/signup'>Start for free</NavLink>
         <Footer />
       </div>
     );
