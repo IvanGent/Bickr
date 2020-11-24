@@ -65,7 +65,6 @@ a.home:hover {
 .login {
   color: white;
   font-size: 16px;
-
 }
 
 .signUp {
@@ -79,4 +78,61 @@ a.home:hover {
 .signUp:hover {
   transition: 500ms;
   color: gray;
+}
+
+.profileMenu {
+  /* position: absolute; */
+  display: flex;
+  justify-content: flex-start;
+  /* background-color: red; */
+  width: 200px;
+  height: 50px;
+  margin-right: 20px
+}
+
+.profile-dropdown {
+  background-color: lightgray;
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-top: 50px;
+  width: 180px;
+  height: 130px;
+  border-radius: 4%;
+}
+
+.profileMenu button {
+  /* background-color: purple; */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 30px;
+  outline: none;
+}
+
+.profileMenu li {
+  /* background-color: lightgray; */
+  padding: 7px;
+  /* width: 120px;
+  height: 50px; */
+  width: auto;
+  height: auto;
+}
+
+button.logoutMenu {
+  background-color: lightgray;
+  width: auto;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+button.logoutMenu:hover {
+ background-color: lightgray;
+}
+
+.profile-dropdown a {
+  /* text-decoration: none; */
+  color: white;
 }

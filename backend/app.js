@@ -8,6 +8,7 @@ const { ValidationError } = require("sequelize");
 
 const routes = require("./routes");
 const { environment } = require("./config");
+const { requireAuth } = require("./utils/auth");
 const isProduction = environment === "production";
 
 const app = express();
@@ -15,7 +16,7 @@ const app = express();
 app.use(morgan("dev"));
 
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 
 // Security Middleware
 if (!isProduction) {

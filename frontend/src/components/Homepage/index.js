@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from '../Footer';
@@ -7,6 +7,22 @@ import './Homepage.css'
 
 const Homepage = () => {
   const sessionUser = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    // (async() => {
+    //   try{
+    //     const res = await fetch('http://localhost:3000/api/photos')
+    //     if(!res.ok) {
+    //       throw new Error('something went wrong');
+    //       return;
+    //     }
+    //     const data = res.json();
+    //     console.log(data);
+    //   } catch(e) {
+    //     console.error(e);
+    //   }
+    // })()
+  })
 
   let sessionBody;
   if(!sessionUser) {
