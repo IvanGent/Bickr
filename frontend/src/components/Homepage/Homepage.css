@@ -6,6 +6,8 @@
   align-items: center;
   height: 95vh;
   color: white;
+  background-image: url('../../images/Home.jpg');
+  background-size: 100%;
 }
 
 .homepage h1 {
@@ -30,4 +32,10 @@
 .homepage > a:hover {
   transition: 500ms;
   color: gray;
+}
+
+main {
+  background-color: white;
+  height: 94vh;
+  width: 100vw;
 }

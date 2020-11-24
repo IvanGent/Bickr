@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from '../Footer';
 import './Homepage.css'
-import '../Navigation/Navigation.css'
+// import './Navigation.css'
 
 const Homepage = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -20,7 +20,8 @@ const Homepage = () => {
     );
   } else {
     sessionBody = (
-      <></>
+      <main>
+      </main>
     );
   };
 
