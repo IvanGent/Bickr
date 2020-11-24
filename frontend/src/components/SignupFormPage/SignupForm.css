@@ -1,7 +1,7 @@
 .signupContainer {
   /* background-color: red; */
   background-image: url('../../images/LogAndSign.jpg');
-  background-size: 100%;
+  background-size: 110%;
   height: 100vh;
   display: flex;
   justify-content: center;

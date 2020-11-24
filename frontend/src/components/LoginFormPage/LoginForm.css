@@ -1,7 +1,7 @@
 .loginContainer {
   /* background-color: red; */
   background-image: url('../../images/LogAndSign.jpg');
-  background-size: 100%;
+  background-size: 110%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,5 +88,5 @@ button:hover {
   color: black;
   background-color: lightgray;
   cursor: pointer;
-  border-radius: 2%;
+  border-radius: 5%;
 }
