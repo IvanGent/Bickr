@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { fetch } from '../../store/csrf';
 import Footer from '../Footer';
 import './Homepage.css'
-// import './Navigation.css'
 
 const Homepage = () => {
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user);
+  const [photos, setPhotos] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
-    // (async() => {
-    //   try{
-    //     const res = await fetch('http://localhost:3000/api/photos')
-    //     if(!res.ok) {
-    //       throw new Error('something went wrong');
-    //       return;
-    //     }
-    //     const data = res.json();
-    //     console.log(data);
-    //   } catch(e) {
-    //     console.error(e);
-    //   }
-    // })()
-  })
+    (async () => {
+      try {
+        const res = await fetch('/api/photo')
+        setPhotos(res.data.photos);
+      } catch(e) {
+        setErrors([e.message]);
+      }
+    })()
+  },[])
+
 
   let sessionBody;
   if(!sessionUser) {
@@ -36,8 +34,22 @@ const Homepage = () => {
     );
   } else {
     sessionBody = (
-      <main>
-      </main>
+      <div className='userMain'>
+        <div>
+          {errors.map((error, i) => <div key={i}>{error}</div> )}
+        </div>
+        <div className='gridContainer'>
+          {/* <div className='photoContainer'> */}
+            {photos.map((photo, i) => {
+              const num = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
+                'eight', 'nine', 'ten', 'eleven', 'tweleve', 'thirteen', 'fourteen',
+                'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+              return <div key={photo.id} id={num[i]}><img src={photo.thumbSrc} alt='' /></div>
+            })}
+            {/* {body} */}
+          {/* </div> */}
+        </div>
+      </div>
     );
   };
 

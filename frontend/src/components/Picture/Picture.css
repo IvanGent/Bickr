@@ -1,0 +1,46 @@
+.photoContainer img{
+  margin-top: 50px;
+  width: 1240px;
+  height: 700px;
+  box-shadow: 2px 2px 15px 20px rgba(0, 0, 0, 0.4)
+}
+
+.photoMain {
+  position: absolute;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(33, 33, 36);
+  width: 100vw;
+  height: 950px;
+}
+
+.deleteBtn {
+  margin-top: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  width: 100px;
+  height: 40px;
+  border-radius: 2%;
+}
+
+.photoContainer p {
+  cursor: pointer;
+  position: absolute;
+  left: 60px;
+  color: lightgray;
+  margin-top: 30px;
+  transition: 1s;
+}
+
+.photoContainer p::before {
+  content: "<<";
+  color: lightgray
+}
+
+.loading {
+  color: white;
+}

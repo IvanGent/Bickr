@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       });
       return await User.scope('currentUser').findByPk(user.id);
     };
+    static async getUser(id) {
+      const user = await User.scope('profile').findByPk(id);
+      return user;
+    }
     static associate(models) {
       // define association here
       User.hasMany(models.Photo, { foreignKey: 'userId' });
@@ -96,6 +100,9 @@ module.exports = (sequelize, DataTypes) => {
         loginUser: {
           attributes: {},
         },
+        profile: {
+          attributes: { exclude: ["hashedPassword", "createdAt", "updatedAt"]}
+        }
       },
     }
   );
