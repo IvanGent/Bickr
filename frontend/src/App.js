@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from './components/Homepage';
 import ProfilePage from './components/ProfilePage';
+import Picture from './components/Picture';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='fullContainer'>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -30,9 +31,12 @@ function App() {
           <Route path="/profile/:id">
             <ProfilePage />
           </Route>
+          <Route path='/photo/:id'>
+            <Picture />
+          </Route>
         </Switch>
       )}
-    </>
+    </div>
   );
 }
 

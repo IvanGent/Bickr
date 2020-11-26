@@ -1,10 +1,10 @@
 .homepage {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   color: white;
   background-image: url('../../images/StockSnap_B028VXG7BC.jpg');
   background-size: 100%;
@@ -34,8 +34,24 @@
   color: gray;
 }
 
-main {
-  background-color: white;
+.userMain {
+  background-color: red;
   height: 94vh;
   width: 100vw;
+  position: absolute;
+  margin-top: 100px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);;
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  border: solid black 5px;
+  padding: 20px;
+}
+
+#one {
+  grid-column: 1/2;
+  grid-row: 1;
 }

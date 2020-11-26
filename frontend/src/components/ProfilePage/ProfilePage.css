@@ -1,3 +1,120 @@
 .profile {
-  padding: 300px;
+  padding-top: 50px;
+}
+
+.photosContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.photosContainer img {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.mainPhotos {
+  /* background-color: red; */
+  position: relative;
+  min-height: 62vh;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  border-top: 1px solid lightgray;
+  height: auto;
+
+}
+
+.mainPhotos h1 {
+  justify-self: center;
+  font-weight: 100;
+}
+
+.imageHeader {
+  /* background-color: red; */
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imageHeader p {
+  font-size: 24px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.imageHeader input {
+  display: none;
+}
+
+.uploadField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 200;
+  width: 180px;
+  height: 30px;
+  background-color: rgb(75, 155, 233);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.uploadField:hover {
+  transition: 1s;
+  cursor: pointer;
+  background-color: rgb(55, 135, 213);
+}
+
+.imageLink {
+  position: absolute;
+  /* background-color: red; */
+  width: 280px;
+  height: 215px;
+  margin: 20px;
+  /* border: solid black 1px; */
+}
+
+.imageLink {
+  box-shadow: 2px 2px 100px 5px rgba(0, 0, 0, 0.4) ;
+  transition: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.imageLink:hover {
+  /* transition: 500ms; */
+  box-shadow: none;
+}
+
+.secondHeader {
+  background-image: url('../../images/banner.jpg');
+  height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  color: white;
+  margin-top: 10px;
+}
+
+
+.userContent h3, h4 {
+  margin-left:310px;
+  padding: 2px;
+}
+
+.userContent h3 {
+  font-size: 23pt;
+  font-weight: 300;
+}
+
+.userContent h4 {
+  margin-bottom: 5px;
+  margin-left: 350px;
+  font-weight: 100;
 }

@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      thumbSrc: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER
