@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { fetch } from '../../store/csrf';
 import Footer from '../Footer';
 import './Homepage.css'
+import PhotoContainer from '../PhotoContainer';
 
 const Homepage = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -27,27 +28,70 @@ const Homepage = () => {
     sessionBody = (
       <div className='homepage'>
         <h1>Find your inspiration.</h1>
-        <h2>Join the Bickr community, home to a few photos</h2>
+        <h2>Join the Bickr community, home to just a few photos</h2>
         <NavLink to='/signup'>Start for free</NavLink>
         <Footer />
       </div>
     );
   } else {
+    // console.log(photos)
     sessionBody = (
       <div className='userMain'>
+
         <div>
           {errors.map((error, i) => <div key={i}>{error}</div> )}
         </div>
         <div className='gridContainer'>
-          {/* <div className='photoContainer'> */}
-            {photos.map((photo, i) => {
-              const num = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
-                'eight', 'nine', 'ten', 'eleven', 'tweleve', 'thirteen', 'fourteen',
-                'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
-              return <div key={photo.id} id={num[i]}><img src={photo.thumbSrc} alt='' /></div>
+
+          <div className='imageContainerOne'>
+            <h2>Recent Photos</h2>
+            {photos.slice(0,4).map((photo) => {
+              return <PhotoContainer key={photo.id} props={{
+                className: 'photoCont',
+                id: photo.id,
+                thumbSrc: photo.thumbSrc,
+                firstName: photo.User.firstName,
+                lastName: photo.User.lastName}} />
             })}
-            {/* {body} */}
-          {/* </div> */}
+          </div>
+          <div className='imageContainerTwo'>
+            <h2>Popular Photos</h2>
+            <div className='firstTop'>
+              {photos.slice(4,8).map((photo) => {
+                return <PhotoContainer key={photo.id} props={{
+                  className: 'rightTop',
+                  id: photo.id,
+                  thumbSrc: photo.thumbSrc
+                }} />
+              })}
+            </div>
+          </div>
+          <div className='imageContainerThree'>
+            <h2>Most Viewed</h2>
+            <div className='middleTop'>
+              {photos.slice(8,16).map((photo) => {
+                return <PhotoContainer key={photo.id} props={{
+                  className: 'rightTopTwo',
+                  id: photo.id,
+                  thumbSrc: photo.thumbSrc
+                }} />
+              })}
+            </div>
+          </div>
+          <div className='imageContainerFour'>
+            <h2>Photo of the day</h2>
+            <div className='bottomTop'>
+            {photos.slice(19).map(photo => {
+              return <PhotoContainer key={photo.id} props={{
+               className: 'rightBottom',
+               id: photo.id,
+               thumbSrc: photo.thumbSrc,
+               firstName: photo.User.firstName,
+               lastName: photo.User.lastName
+             }} />
+            })}
+            </div>
+          </div>
         </div>
       </div>
     );

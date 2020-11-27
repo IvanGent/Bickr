@@ -22,10 +22,10 @@
   min-height: 62vh;
   display: flex;
   justify-content: center;
-  margin: 40px;
+  margin: 80px;
   border-top: 1px solid lightgray;
   height: auto;
-
+  box-shadow: 0px -30px 30px 10px rgba(0, 0, 0, 0.2);
 }
 
 .mainPhotos h1 {
@@ -75,20 +75,22 @@
 .imageLink {
   position: absolute;
   /* background-color: red; */
-  width: 280px;
-  height: 215px;
-  margin: 20px;
+  width: 260px;
+  height: 160px;
+  /* margin: 20px; */
+  margin-left: 30px;
+  margin-top: 30px;
   /* border: solid black 1px; */
 }
 
-.imageLink {
-  box-shadow: 2px 2px 100px 5px rgba(0, 0, 0, 0.4) ;
-  transition: 300ms;
-  transition-timing-function: ease-in-out;
+.imageLink:hover {
+  box-shadow: 2px 2px 100px 5px rgba(0, 0, 0, 0.7) ;
+  /* transition: 500ms; */
 }
 
-.imageLink:hover {
-  /* transition: 500ms; */
+.imageLink {
+  transition: 500ms;
+  transition-timing-function: ease-in-out;
   box-shadow: none;
 }
 

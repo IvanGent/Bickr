@@ -1,7 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Photo } = require('../../db/models');
+const { Photo, User } = require('../../db/models');
+
 
 const router = express.Router();
 
@@ -14,9 +15,12 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 router.get('/', asyncHandler(async (req, res) => {
-  const photos = await Photo.getPhotos();
+  const photos = await Photo.findAll({
+    include: User,
+    limit: 20,
+  });
 
-  return await res.json({
+  return res.json({
     photos,
   });
 }));

@@ -1,30 +1,27 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Photos', {
+    await queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      src: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      thumbSrc: {
+      comment: {
         allowNull: false,
         type: Sequelize.TEXT
       },
       userId: {
+        references: {model: 'Users'},
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        type: Sequelize.INTEGER
       },
-      // albumId: {
-      //   references: { model: "Albums" },
-      //   type: Sequelize.INTEGER
-      // },
+      photoId: {
+        references: {model: 'Photos'},
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -36,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Photos');
+    await queryInterface.dropTable('Comments');
   }
 };

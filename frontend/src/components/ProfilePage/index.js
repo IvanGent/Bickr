@@ -76,7 +76,7 @@ const ProfilePage = () => {
   if(userPhotos.length > 0) {
     place = <div className='photosContainer'>
       {userPhotos.map(photo => {
-        return <div key={photo.id}>
+        return <div key={photo.id} className='imageContainer'>
           <NavLink to={`/photo/${photo.id}`} className='imageLink' />
           <img id={photo.id} src={photo.thumbSrc} alt='' />
         </div>

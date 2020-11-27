@@ -2,6 +2,9 @@
 const {
   Model
 } = require('sequelize');
+const db = require('../models')
+const { User } = db
+
 module.exports = (sequelize, DataTypes) => {
   class Photo extends Model {
     /**
@@ -9,12 +12,6 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static async getPhotos() {
-      const photos = await Photo.scope('preview').findAll({
-        limit: 20
-      });
-      return photos;
-    };
 
     static async findPhoto({id}) {
       const photo = await Photo.scope('main').findByPk(id);
@@ -22,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static async profilePhotos(userId) {
-      const photos = await Photo.scope('preview').findAll({
+      const photos = await Photo.findAll({
         where: { userId }
       })
       return photos;
@@ -34,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         thumbSrc,
         userId
       })
-      return await Photo.scope('preview').findByPk(photo.id);
+      return await Photo.findByPk(photo.id);
     }
 
     static async removePhoto({id}) {
@@ -63,16 +60,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull:false
+      allowNull: false
     },
-    albumId: DataTypes.INTEGER
+    // albumId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Photo',
+    defaultScope: {
+      attributes: { exclude: ['src'] }
+    },
     scopes: {
-      preview: {
-        attributes: { exclude: ['src'] },
-      },
       main: {
         attributes: { exclude: ['thumbSrc']}
       }

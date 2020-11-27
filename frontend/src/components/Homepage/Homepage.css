@@ -35,7 +35,7 @@
 }
 
 .userMain {
-  background-color: red;
+  /* background-color: red; */
   height: 94vh;
   width: 100vw;
   position: absolute;
@@ -43,15 +43,184 @@
 }
 
 .gridContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);;
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  border: solid black 5px;
+  display: flex;
+  justify-content: center;
+  /* border: solid black 5px; */
   padding: 20px;
+  background-color: rgb(245, 245, 245);
+
 }
 
-#one {
-  grid-column: 1/2;
-  grid-row: 1;
+.imageContainerOne {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 30px;
+  background-color: white;
+  width: 1200px;
+  height: 700px;
+  margin-right: 100px;
+  margin-top: 100px;
+}
+
+.imageContainerOne a {
+  position: absolute;
+  /* background-color: red; */
+  width: 430px;
+  height: 210px;
+  margin-left: 20px;
+  margin-top: 20px;
+  box-shadow: 2px 2px 100px 5px rgba(0, 0, 0, 0.7)
+}
+
+.imageContainerOne a:hover {
+ transition: 500ms;
+ transition-timing-function: ease-in-out;
+ box-shadow: none;
+}
+
+.imageContainerTwo {
+  position: absolute;
+  background-color: white;
+  right: 120px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.imageContainerOne img {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 450px;
+  height: 230px;
+}
+
+.photoCont {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.gridContainer h2 {
+  position: absolute;
+  font-size: 15px;
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.imageContainerOne h5 {
+  font-size: 18px;
+  /* background-color: yellow; */
+}
+
+.imageContainerTwo img {
+  width: 100px;
+  height: 80px;
+}
+
+.imageContainerTwo a {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  /* background-color: red; */
+  margin: 0;
+  /* margin-top: 40px; */
+}
+
+.imageContainerTwo a:hover {
+  box-shadow: none;
+}
+
+.firstTop {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: yellow; */
+  width: 270px;
+  height: 200px;
+  margin-top: 25px;
+}
+
+.middleTop {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* background-color: yellow; */
+  width: 280px;
+  height: 220px;
+  margin-top: 40px;
+}
+
+.imageContainerThree img{
+  width: 80px;
+  height: 60px;
+  padding: 5px;
+}
+
+.imageContainerThree {
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: absolute;
+  align-self: center;
+  right: 115px;
+  /* margin-right: 15px; */
+  border-radius: 2px;
+  height: 265px;
+  margin: 30px, 0, 30px, 0;
+
+}
+
+.imageContainerThree a {
+  /* position: absolute; */
+  /* background-color: red; */
+  width: 80px;
+  height: 60px;
+  padding: 5px;
+  margin: 0;
+  border: solid black 1px;
+}
+
+.imageContainerThree h2 {
+  font-weight: 400;
+}
+
+.imageContainerThree a:hover {
+  box-shadow: none;
+  width: 82px;
+  height: 62px;
+  transition: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+.imageContainerFour {
+  position: relative;
+  align-self: flex-end;
+  /* background-color: red; */
+  /* width: 330px; */
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.imageContainerFour img {
+  width: 300px;
+  height: 180px;
+}
+
+.imageContainerFour h2 {
+  position: absolute;
+  /* margin-top: 40px; */
+}
+
+.bottomTop {
+  /* background-color: purple; */
+  margin-top: 40px;
+}
+
+.bottomTop a {
+  /* background-color: blue; */
+  margin: 0;
+  width: 300px;
+  height: 180px;
 }
