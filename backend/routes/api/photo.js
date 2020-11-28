@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Photo, User } = require('../../db/models');
+const { Photo, User, Comment } = require('../../db/models');
 
 
 const router = express.Router();
@@ -27,7 +27,11 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const photo = await Photo.findPhoto({id});
+  // const photo = await Photo.findPhoto(id)
+  const photo = await Photo.scope('main').findByPk(id, {
+    include: User
+  });
+  console.log(photo.Comments);
   return res.json({
     photo,
   });
@@ -40,5 +44,19 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     message
   });
 }));
+
+router.post('/:id/comment', asyncHandler(async (req, res) => {
+  console.log(req.body);
+  const id = req.params.id;
+  const { comment, userId } = req.body
+  const newComment = await Comment.addAComment({
+    comment,
+    userId,
+    photoId: id,
+  })
+  return res.json({
+    comment: newComment
+  });
+}))
 
 module.exports = router

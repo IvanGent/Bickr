@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 import * as photoActions from '../../store/photos';
+import * as commentActions from '../../store/comments';
 import { fetch } from '../../store/csrf';
+import Comment from '../Comment';
 // import { Redirect } from 'react-router';
 import './Picture.css'
 
@@ -26,7 +28,7 @@ const Picture = () => {
     })()
     //
   }, [id])
-  console.log(photo)
+
   const handleDelete = () => {
     dispatch(photoActions.deleteAPhoto({id, userId}))
       .catch(res => {
@@ -50,18 +52,28 @@ const Picture = () => {
         <div>
           <p onClick={e => history.goBack()}>Go back</p>
           <img src={photo.src} alt='' />
+          {/* <h2>{photo.User.firstName}</h2> */}
+          <div className='userName'>
+            <NavLink to={`/profile/${photo.User.id}`}>{photo.User.firstName} {photo.User.lastName}</NavLink>
+          </div>
           {btn}
-          {/* <button className='deleteBtn' onClick={handleDelete}>Delete</button> */}
+          <div className='commentsContainer'>
+            <Comment props={{comments:photo.comments}} />
+          </div>
         </div>
       )
     }
   }
   return (
+    <>
+    <div className='filler'></div>
     <div className='photoMain'>
+
       <div className='photoContainer'>
         {body}
       </div>
     </div>
+    </>
   )
 }
 

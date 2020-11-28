@@ -1,0 +1,93 @@
+.mainCommentBox {
+  /* background-color: blue; */
+  margin-top: 50px;
+  /* height: 500px; */
+  display: flex;
+  flex-direction: column;
+  /* box-shadow: 0px 15px 5px 5px rgba(0, 0, 0, 0.2); */
+  margin-bottom: 60px;
+  padding: 30px;
+  width: 1100px;
+}
+
+.commentsH3 {
+  /* position: absolute; */
+  /* position: relative; */
+  margin-top: 140px;
+}
+
+.commentCont {
+  /* margin-top: 50px; */
+  align-self: center;
+  width: 600px;
+  max-height: 350px;
+  padding: 16px 30px;
+  margin-left: 10px;
+  overflow: scroll;
+  margin-bottom: 10px;
+  border-bottom: solid black thin;
+  border-top: solid black thin;
+  /* box-shadow: 0px 5px 0px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.commentCont:hover {
+  box-shadow: 0px 5px 0px 5px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.user {
+  font-weight: 300;
+}
+
+.comment {
+  margin-left: 70px;
+  font-weight: 100;
+}
+
+.errors {
+  align-self: center;
+  color: red;
+}
+
+.mainCommentBox textarea {
+  font-weight: 200;
+  align-self: center;
+  margin-top: 40px;
+  width: 300px;
+  height: 50px;;
+
+  outline: none;
+  border: none;
+  transition-timing-function: ease-in-out;
+  transition: 500ms;
+}
+
+.mainCommentBox textarea:focus {
+  padding: 10px 15px;
+  border-radius: 6px;
+  width: 500px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2) ;
+}
+
+.mainCommentBox button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  height: 40px;
+  width: 100px;
+  border-radius: 3px;
+  transition: 300ms;
+  transition-timing-function: ease-in-out;
+  color: white;
+  margin-right: 80px;
+  /* border: solid black 1px; */
+  background-color: rgb(75, 155, 233);
+}
+
+.mainCommentBox button:hover {
+  background-color: rgb(0, 100, 233)
+  /* color: black */
+  /* margin-right: 110px; */
+}

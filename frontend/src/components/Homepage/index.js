@@ -37,7 +37,7 @@ const Homepage = () => {
     // console.log(photos)
     sessionBody = (
       <div className='userMain'>
-
+        <div className='fillerHome'></div>
         <div>
           {errors.map((error, i) => <div key={i}>{error}</div> )}
         </div>
@@ -99,6 +99,7 @@ const Homepage = () => {
 
   return (
     <>
+      {/* <div className='fillerHome'></div> */}
       {sessionBody}
     </>
   );

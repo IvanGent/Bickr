@@ -22,13 +22,8 @@ const ProfilePage = () => {
   useEffect(() => {
     (async () => {
       const res = await fetch(`/api/profile/${id}`)
-      console.log(res);
       setUser(res.data.user)
     })()
-    // if(userPhotos.length > 0) {
-    //   return;
-    // }
-    // dispatch(photoActions.reset());
     return dispatch(photoActions.updatingState(id))
       .catch(res => {
         if(res.data && res.data.errors) setErrors(res.data.errors)

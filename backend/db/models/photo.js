@@ -2,8 +2,9 @@
 const {
   Model
 } = require('sequelize');
-const db = require('../models')
-const { User } = db
+const db = require('../models');
+const comment = require('./comment');
+const { User, Comment } = db
 
 module.exports = (sequelize, DataTypes) => {
   class Photo extends Model {
@@ -13,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    static async findPhoto({id}) {
+    static async findPhoto(id) {
       const photo = await Photo.scope('main').findByPk(id);
       return photo;
     }
@@ -40,6 +41,11 @@ module.exports = (sequelize, DataTypes) => {
           id
         }
       })
+      await comment.destroy({
+        where: {
+          photoId: id
+        }
+      })
       const message = 'Photo Deleted';
       return message;
     }
@@ -47,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Photo.belongsTo(models.User, { foreignKey: 'userId' });
+      Photo.hasMany(models.Comment, { foreignKey: 'photoId' })
     }
   };
   Photo.init({
@@ -67,7 +74,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Photo',
     defaultScope: {
-      attributes: { exclude: ['src'] }
+      attributes: { exclude: ['src'] },
     },
     scopes: {
       main: {
