@@ -59,7 +59,7 @@
   background-color: white;
   width: 1200px;
   height: 700px;
-  margin-right: 100px;
+  margin-right: 300px;
   margin-top: 100px;
 }
 
@@ -173,8 +173,6 @@
 }
 
 .imageContainerThree a {
-  /* position: absolute; */
-  /* background-color: red; */
   width: 80px;
   height: 60px;
   padding: 5px;
@@ -195,10 +193,13 @@
 }
 
 .imageContainerFour {
-  position: relative;
+  display: flex;
+  position: absolute;
   align-self: flex-end;
-  /* background-color: red; */
-  /* width: 330px; */
+  justify-content: center;
+  right: 80px;
+
+  width: 330px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 }
