@@ -39,7 +39,15 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 router.delete('/:id', asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const message = await Photo.removePhoto({id});
+  await Comment.destroy({
+    where: {
+      photoId: id
+    }
+  })
+  await Photo.destroy({
+    where: {id}
+  })
+  const message = 'Photo Deleted';
   return res.json({
     message
   });

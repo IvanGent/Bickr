@@ -35,21 +35,6 @@ module.exports = (sequelize, DataTypes) => {
       return await Photo.findByPk(photo.id);
     }
 
-    static async removePhoto({id}) {
-      await Photo.destroy({
-        where: {
-          id
-        }
-      })
-      await comment.destroy({
-        where: {
-          photoId: id
-        }
-      })
-      const message = 'Photo Deleted';
-      return message;
-    }
-
     static associate(models) {
       // define association here
       Photo.belongsTo(models.User, { foreignKey: 'userId' });

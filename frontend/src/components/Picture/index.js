@@ -5,7 +5,6 @@ import * as photoActions from '../../store/photos';
 import * as commentActions from '../../store/comments';
 import { fetch } from '../../store/csrf';
 import Comment from '../Comment';
-// import { Redirect } from 'react-router';
 import './Picture.css'
 
 const Picture = () => {
@@ -34,7 +33,7 @@ const Picture = () => {
       .catch(res => {
         if(res.data && res.data.errors) setErrors(res.data.errors)
       })
-    history.goBack();
+    history.replace(`/profile/${sessionUser.id}`);
   }
 
 
