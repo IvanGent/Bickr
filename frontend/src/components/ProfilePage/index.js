@@ -16,6 +16,7 @@ const ProfilePage = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState([]);
+  const [albumId, setAlbumId] = useState();
 
 
 
@@ -95,15 +96,27 @@ const ProfilePage = () => {
   }
 
   const handleAlbum = async () => {
-      const album = await fetch(`/api/album`, {
-        method: 'POST',
-        body: JSON.stringify({
-          name: 'this is 1',
-          userId: user.id,
-        })
+    const album = await fetch(`/api/album`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: 'this is 1',
+        userId: user.id,
       })
-      const check = album.data
-      console.log(check);
+    });
+    const check = album.data.createdAlbum
+    setAlbumId(check.id)
+  }
+
+  const handleAddPhotoToAlbum = async () => {
+    const album = await fetch(`/api/album/photo`, {
+      method: 'POST',
+      body: JSON.stringify({
+        albumId: albumId,
+        photoId: 1
+      })
+    });
+    const check = album.data
+    console.log(check)
   }
 
   return (
@@ -115,6 +128,7 @@ const ProfilePage = () => {
         </div>
       </div>
       <div onClick={handleAlbum}>CREATE ALBUM</div>
+      <div onClick={handleAddPhotoToAlbum}>ADD A PHOTO</div>
       {addPhoto}
       <div>
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}
