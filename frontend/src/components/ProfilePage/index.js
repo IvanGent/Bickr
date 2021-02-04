@@ -35,7 +35,6 @@ const ProfilePage = () => {
   const handlePhoto = (e) => {
     const reader = new FileReader();
     let file = e.target.files[0];
-    setErrors([]);
     if(!file.type.match(/image.*/)) {
       setErrors(['Needs to be an image']);
       return;
