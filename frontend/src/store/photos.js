@@ -4,7 +4,7 @@ const ADD_PHOTO = 'photo/addPhoto';
 const UPDATE_STATE = 'photo/updateState';
 const GET_STATE = 'photo/getState';
 const DELETE_PHOTO = 'photo/deletePhoto'
-const RESET = 'photo/resetState'
+// const RESET = 'photo/resetState'
 
 const addPhoto = (photo) => {
   return {
@@ -32,11 +32,11 @@ const deletePhoto = () => {
   }
 }
 
-const resetState = () => {
-  return {
-    type: RESET,
-  }
-}
+// const resetState = () => {
+//   return {
+//     type: RESET,
+//   }
+// }
 export const gettingState = () => (dispatch) => {
   dispatch(getState());
   return
