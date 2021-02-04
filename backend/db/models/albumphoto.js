@@ -33,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
-      AlbumPhoto.hasOne(models.Photo, { foreignKey: 'photoId'});
-      AlbumPhoto.hasOne(models.Album, { foreignKey: 'albumId'});
+      // AlbumPhoto.hasOne(models.Photo, { foreignKey: 'photoId'});
+      // AlbumPhoto.hasOne(models.Album, { foreignKey: 'albumId'});
     }
   };
   AlbumPhoto.init({

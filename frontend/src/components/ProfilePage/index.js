@@ -29,7 +29,7 @@ const ProfilePage = () => {
         if(res.data && res.data.errors) setErrors(res.data.errors)
       })
 
-  },[dispatch, id, userPhotos]);
+  },[dispatch, id, userPhotos.length]);
 
 
   const handlePhoto = (e) => {
