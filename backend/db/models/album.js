@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       return album;
     }
 
-    static async deleteAlbum({id}) {
+    static async deleteAlbum({albumId}) {
       await Album.destroy({
         where: {
-          id
+          id: albumId
         }
       })
       const message = 'Album Deleted'
