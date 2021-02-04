@@ -9,6 +9,28 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    static async addPhoto({ albumId, photoId }) {
+      const rel = await AlbumPhoto.create({
+        albumId,
+        photoId
+      })
+      const message = 'Photo Added';
+      return message;
+    }
+
+    static async removePhoto({ albumId, photoId }) {
+      await AlbumPhoto.destroy({
+        where: {
+          photoId,
+          albumId
+        }
+      })
+      const message = 'Photo Deleted';
+      return message;
+    }
+
+
     static associate(models) {
       // define association here
       AlbumPhoto.hasOne(models.Photo, { foreignKey: 'photoId'});
