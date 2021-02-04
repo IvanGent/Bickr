@@ -11,7 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
 
     static async createAlbum({name, userId}) {
-      
+      const album = await Album.create({
+        name,
+        userId
+      })
+      return await album;
+    }
+
+    static async deleteAlbum({id}) {
+      await Album.destroy({
+        where: {
+          id
+        }
+      })
+      const message = 'Album Deleted'
+      return message;
     }
 
     static associate(models) {
