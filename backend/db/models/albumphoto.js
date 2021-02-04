@@ -14,8 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   AlbumPhoto.init({
-    photoId: DataTypes.INTEGER,
-    albumId: DataTypes.INTEGER
+    photoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Photos',
+        key: 'id'
+      }
+    },
+    albumId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Albums',
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'AlbumPhoto',
