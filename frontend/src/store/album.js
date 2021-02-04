@@ -3,18 +3,23 @@ import { fetch } from './csrf';
 const ADD_PHOTO = 'album/addPhoto';
 const DELETE_PHOTO = 'album/deletePhoto';
 
-const addPhoto = (photoId) => {
+const addPhoto = (photo) => {
     return {
         type: ADD_PHOTO,
-        payload: photoId
+        payload: photo
     }
 }
 
-const deletePhoto = (photoId) => {
+const deletePhoto = (photo) => {
     return {
         type: DELETE_PHOTO,
-        payload: photoId
+        payload: photo
     }
+}
+
+const addingPhoto = (data) => async(dispatch) => {
+    const { userId, photoId, albumId } = data;
+    const res = await fetch(`/api/album/`)
 }
 
 let initialState = { album: [] };
