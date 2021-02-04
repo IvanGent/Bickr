@@ -13,5 +13,15 @@ router.get('/:id', asyncHandler(async(req, res) => {
     })
 }))
 
+router.post('/', asyncHandler(async(req, res) => {
+    const { name, userId } = req.body
+    const album = Album.createAlbum({ name, userId });
+    return res.json({
+        album
+    });
+}));
+
+// router.delete('/', asyncHandler())
+
 
 module.exports = router;
