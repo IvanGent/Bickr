@@ -4,6 +4,7 @@ const usersRouter = require("./users.js");
 const profileRouter = require("./profile.js")
 const photoRouter = require("./photo.js");
 const commentRouter = require('./comment.js');
+const albumRouter = require('./album.js');
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
@@ -52,5 +53,7 @@ router.use("/profile", profileRouter);
 router.use("/photo", photoRouter);
 
 router.use("/comment", commentRouter);
+
+router.use("/album", albumRouter);
 
 module.exports = router;
