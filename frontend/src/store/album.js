@@ -10,10 +10,9 @@ const addPhoto = (photo) => {
     }
 }
 
-const deletePhoto = (i) => {
+const deletePhoto = () => {
     return {
         type: DELETE_PHOTO,
-        payload: i
     }
 }
 
@@ -39,7 +38,7 @@ export const removingPhoto = (data) => async(dispatch) => {
             albumId
         })
     })
-    await dispatch(deletePhoto(res.data.photo))
+    await dispatch(deletePhoto())
     return res
 }
 
@@ -52,8 +51,8 @@ const albumReducer = (state = initialState, { type, payload }) => {
             newState = { album: [...state.album, payload]}
             return newState;
         case DELETE_PHOTO:
-            let arr = state.filter((ele, i) => i !== payload)
-            newState = { album: arr}
+            // let arr = state.filter((ele, i) => i !== payload)
+            // newState = { album: arr}
             return newState;
         default:
             return state;
