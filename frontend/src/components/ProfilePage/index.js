@@ -94,6 +94,18 @@ const ProfilePage = () => {
     addPhoto = <></>;
   }
 
+  const handleAlbum = async () => {
+      const album = await fetch(`/api/album`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: 'this is 1',
+          userId: user.id,
+        })
+      })
+      const check = album.data
+      console.log(check);
+  }
+
   return (
     <div className='profile'>
       <div className='secondHeader'>
@@ -102,6 +114,7 @@ const ProfilePage = () => {
           <h4>{user.email}</h4>
         </div>
       </div>
+      <div onClick={handleAlbum}>CREATE ALBUM</div>
       {addPhoto}
       <div>
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}

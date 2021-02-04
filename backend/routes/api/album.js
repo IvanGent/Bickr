@@ -16,8 +16,10 @@ router.get('/:id', asyncHandler(async(req, res) => {
 router.post('/', asyncHandler(async(req, res) => {
     const { name, userId } = req.body
     const album = Album.createAlbum({ name, userId });
+    const createdAlbum = await album
+
     return res.json({
-        album
+        createdAlbum
     });
 }));
 

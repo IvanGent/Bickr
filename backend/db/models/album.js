@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         name,
         userId
       })
-      return await album;
+      // console.log(album);
+      return album;
     }
 
     static async deleteAlbum({id}) {
