@@ -13,6 +13,22 @@ router.get('/:id', asyncHandler(async(req, res) => {
     })
 }))
 
+router.get('/user/:id', asyncHandler(async(req, res) => {
+    const id = req.params.id;
+    const albums = Album.findAll({
+        include: [{
+            model: AlbumPhoto,
+            as: 'AlbumPhotos',
+        }],
+        where: { userId: id}
+    })
+    const allAlbums = await albums;
+    console.log(allAlbums);
+    return res.json({
+        allAlbums
+    })
+}))
+
 router.post('/', asyncHandler(async(req, res) => {
     const { name, userId } = req.body;
     const album = Album.createAlbum({ name, userId });

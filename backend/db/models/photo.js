@@ -39,11 +39,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Photo.belongsTo(models.User, { foreignKey: 'userId' });
       Photo.hasMany(models.Comment, { foreignKey: 'photoId' })
-      Photo.belongsToMany(models.Album, {
-        through: 'AlbumPhotos',
-        as: 'photos',
-        foreignKey: 'photoId'
-      })
+      // Photo.belongsToMany(models.Album, {
+      //   through: 'AlbumPhotos',
+      //   as: 'photos',
+      //   foreignKey: 'photoId'
+      // })
+      Photo.belongsTo(models.AlbumPhoto, { foreignKey: 'photoId'});
     }
   };
   Photo.init({

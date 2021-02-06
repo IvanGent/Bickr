@@ -24,6 +24,8 @@ const ProfilePage = () => {
     (async () => {
       const res = await fetch(`/api/profile/${id}`)
       setUser(res.data.user)
+      const als = await fetch(`/api/album/user/${id}`)
+      console.log(als.data)
     })()
     return dispatch(photoActions.updatingState(id))
       .catch(res => {

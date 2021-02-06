@@ -1,5 +1,6 @@
 'use strict';
 const { Model, Validator } = require('sequelize');
+const models = require('../models')
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes) => {
@@ -36,6 +37,17 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     };
     static async getUser(id) {
+      // const user = await User.scope('profile').findAll({
+      //   include: [{
+      //     model: models.Album,
+      //     as: 'albums',
+      //     required: false,
+      //     // attributes: ['id', 'name'],
+      //     // through: { attributes: []}
+      //   }],
+      //   where: { userId: id }
+      // });
+
       const user = await User.scope('profile').findByPk(id);
       return user;
     }

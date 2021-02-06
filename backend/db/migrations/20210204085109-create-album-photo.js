@@ -12,8 +12,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Photos',
-          key: 'id'
+          model: 'Photos'
         }
       },
       albumId: {
@@ -21,7 +20,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Albums',
-          key: 'id'
         }
       },
       createdAt: {
