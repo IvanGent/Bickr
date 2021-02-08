@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       //   as: 'photos',
       //   foreignKey: 'photoId'
       // })
-      Photo.belongsTo(models.AlbumPhoto, { foreignKey: 'photoId'});
+      // Photo.belongsTo(models.AlbumPhoto, { foreignKey: 'photoId'});
     }
   };
   Photo.init({

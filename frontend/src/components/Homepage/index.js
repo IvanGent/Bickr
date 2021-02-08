@@ -15,6 +15,7 @@ const Homepage = () => {
     (async () => {
       try {
         const res = await fetch('/api/photo')
+        console.log(res)
         setPhotos(res.data.photos);
       } catch(e) {
         setErrors([e.message]);
@@ -34,7 +35,6 @@ const Homepage = () => {
       </div>
     );
   } else {
-    // console.log(photos)
     sessionBody = (
       <div className='userMain'>
         <div className='fillerHome'></div>

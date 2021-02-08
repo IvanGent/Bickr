@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       //   as: 'photos',
       //    foreignKey: 'albumId'
       //   })
-      Album.hasMany(models.AlbumPhoto, { as: 'AlbumPhotos'})
+      // Album.hasMany(models.AlbumPhoto, { as: 'AlbumPhotos'})
     }
   };
   Album.init({

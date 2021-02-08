@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
 
 
     static associate(models) {
-      // define association here
-      AlbumPhoto.hasMany(models.Photo, { foreignKey: 'photoId'});
-      AlbumPhoto.belongsTo(models.Album, { foreignKey: 'albumId'});
+      // // define association here
+      AlbumPhoto.hasMany(models.Photo, { foreignKey: 'id'});
+      AlbumPhoto.belongsTo(models.Album, { foreignKey: 'id'});
     }
   };
   AlbumPhoto.init({
