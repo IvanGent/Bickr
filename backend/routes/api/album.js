@@ -21,7 +21,7 @@ router.get('/user/:id', asyncHandler(async(req, res) => {
             model: AlbumPhoto,
             // as: 'AlbumPhotos',
             include: [{
-                model: Photo
+                model: Photo.scope('main')
             }],
         }],
         where: { userId: id}

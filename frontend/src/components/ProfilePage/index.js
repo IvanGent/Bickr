@@ -114,7 +114,7 @@ const ProfilePage = () => {
       method: 'POST',
       body: JSON.stringify({
         albumId: albumId,
-        photoId: 1
+        photoId: 4
       })
     });
     const check = album.data
