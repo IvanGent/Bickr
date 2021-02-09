@@ -17,6 +17,7 @@ const ProfilePage = () => {
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState([]);
   const [albumId, setAlbumId] = useState();
+  const [showAlbum, setShowAlbum] = useState(false);
 
 
 
@@ -136,7 +137,11 @@ const ProfilePage = () => {
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}
       </div>
       <div className='mainPhotos'>
-        {place}
+        {showAlbum ? (
+          <Album />
+        ) : (
+          {place}
+        )}
       </div>
       <Footer />
     </div>
