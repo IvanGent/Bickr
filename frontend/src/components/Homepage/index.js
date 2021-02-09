@@ -15,7 +15,6 @@ const Homepage = () => {
     (async () => {
       try {
         const res = await fetch('/api/photo')
-        console.log(res)
         setPhotos(res.data.photos);
       } catch(e) {
         setErrors([e.message]);
