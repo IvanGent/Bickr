@@ -17,12 +17,12 @@ const Album = () => {
 
     useEffect(() => {
         // dispatch(photoActions.updatingState(id))
-        console.log(userPhotos)
+        // console.log(userPhotos)
     }, [dispatch, id]);
 
 
-    const handleAlbumSubmit = async (e, albumId) => {
-        e.preventDefault();
+    const handleAlbumSubmit = async (albumId) => {
+        // e.preventDefault();
         const photos = [];
         userPhotos.forEach((ele, i) => {
             if(selected[i]) photos.push(ele);
@@ -38,7 +38,8 @@ const Album = () => {
         console.log(result)
     };
 
-    const handleAlbum = async () => {
+    const handleAlbum = async (e) => {
+        e.preventDefault();
         const album = await fetch(`/api/album`, {
             method: 'POST',
             body: JSON.stringify({
@@ -65,7 +66,7 @@ const Album = () => {
 
     return (
         <div className='AlbumCont'>
-            <form onSubmit={handleAlbumSubmit}>
+            <form onSubmit={handleAlbum}>
                 <input
                     type='text'
                     value={alTitle}
