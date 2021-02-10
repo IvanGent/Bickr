@@ -33,10 +33,8 @@ const Album = () => {
         const check = album.data.createdAlbum
         const photos = [];
         userPhotos.forEach((ele, i) => {
-            console.log(ele);
             if(selected[i]) photos.push(ele.id);
         })
-        console.log(photos)
         const res = await fetch('/api/album/photo', {
             method: 'POST',
             body: JSON.stringify({
