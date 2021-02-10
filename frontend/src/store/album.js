@@ -17,11 +17,11 @@ const deletePhoto = () => {
 }
 
 export const addingPhoto = (data) => async(dispatch) => {
-    const { photoId, albumId } = data;
+    const { photos, albumId } = data;
     const res = await fetch(`/api/album/photo`, {
         method: 'POST',
         body: JSON.stringify({
-            photoId,
+            photos,
             albumId
         })
     })

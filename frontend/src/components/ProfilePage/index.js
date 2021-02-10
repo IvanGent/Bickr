@@ -106,17 +106,17 @@ const ProfilePage = () => {
     );
   };
 
-  const handleAlbum = async () => {
-    const album = await fetch(`/api/album`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name: 'this is 1',
-        userId: user.id,
-      })
-    });
-    const check = album.data.createdAlbum
-    setAlbumId(check.id)
-  }
+  // const handleAlbum = async () => {
+  //   const album = await fetch(`/api/album`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       name: 'this is 1',
+  //       userId: user.id,
+  //     })
+  //   });
+  //   const check = album.data.createdAlbum
+  //   setAlbumId(check.id)
+  // }
 
   const handleAddPhotoToAlbum = async () => {
     const album = await fetch(`/api/album/photo`, {

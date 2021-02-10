@@ -54,9 +54,10 @@ router.delete('/', asyncHandler(async(req, res) => {
 }));
 
 router.post('/photo', asyncHandler(async(req, res) => {
-    const { albumId, photoId } = req.body;
-    const mess = AlbumPhoto.addPhoto({ albumId, photoId});
-    const message = await mess;
+    const { albumId, photos } = req.body;
+    console.log(photos)
+    // const mess = AlbumPhoto.addPhoto({ albumId, photoId});
+    // const message = await mess;
     return res.json({
         message
     });

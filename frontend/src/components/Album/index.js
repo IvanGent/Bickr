@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as albumActions from '../../store/album';
-import * as photoActions from '../../store/photos';
-import { useParams, NavLink } from 'react-router-dom';
+// import * as albumActions from '../../store/album';
+// import * as photoActions from '../../store/photos';
+import { useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
 
@@ -19,9 +19,26 @@ const Album = () => {
         console.log(userPhotos)
     }, [dispatch, id]);
 
-    const handleAlbumSubmit = async () => {
-        
+    const handleAlbumSubmit = async (albumId) => {
+        const res = await fetch('/api/album/photo', {
+            method: 'POST',
+            body: JSON.stringify({
+                albumId
+            })
+        })
     };
+
+    const handleAlbum = async () => {
+        const album = await fetch(`/api/album`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: alTitle,
+                userId: id,
+            })
+        });
+        const check = album.data.createdAlbum
+        handleAlbumSubmit(check.id);
+    }
 
     const handleClickSelection = (e) => {
         const pos = e.target.id.split(',')[1]
@@ -38,7 +55,7 @@ const Album = () => {
 
     return (
         <div className='AlbumCont'>
-            <form onSubmit={handleAlbumSubmit}>
+            <form onSubmit={handleAlbum}>
                 <input
                     type='text'
                     value={alTitle}
