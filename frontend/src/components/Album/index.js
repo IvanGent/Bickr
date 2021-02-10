@@ -17,8 +17,6 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        // dispatch(photoActions.updatingState(id))
-        // console.log(userPhotos)
     }, [dispatch, id]);
 
 

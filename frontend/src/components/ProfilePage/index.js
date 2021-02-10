@@ -100,9 +100,6 @@ const ProfilePage = () => {
 
   const handleOpenCreateAlbum = () => {
     setShowAlbumCreate(true);
-    // return (
-    //   <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
-    // );
   };
 
 
