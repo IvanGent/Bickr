@@ -7,6 +7,7 @@ import { fetch } from '../../store/csrf';
 import './Album.css';
 
 
+
 const Album = () => {
     const dispatch = useDispatch();
     const userPhotos = useSelector(state => state.photo.photos);
@@ -19,13 +20,22 @@ const Album = () => {
         console.log(userPhotos)
     }, [dispatch, id]);
 
-    const handleAlbumSubmit = async (albumId) => {
+
+    const handleAlbumSubmit = async (e, albumId) => {
+        e.preventDefault();
+        const photos = [];
+        userPhotos.forEach((ele, i) => {
+            if(selected[i]) photos.push(ele);
+        })
         const res = await fetch('/api/album/photo', {
             method: 'POST',
             body: JSON.stringify({
-                albumId
+                albumId,
+                photos
             })
         })
+        const result = await res.json();
+        console.log(result)
     };
 
     const handleAlbum = async () => {
@@ -55,7 +65,7 @@ const Album = () => {
 
     return (
         <div className='AlbumCont'>
-            <form onSubmit={handleAlbum}>
+            <form onSubmit={handleAlbumSubmit}>
                 <input
                     type='text'
                     value={alTitle}
