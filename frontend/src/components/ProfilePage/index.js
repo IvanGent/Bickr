@@ -18,6 +18,7 @@ const ProfilePage = () => {
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState([]);
   const [showAlbum, setShowAlbum] = useState(false);
+  const [showAlbumCreate, setShowAlbumCreate] = useState(false);
 
 
 
@@ -98,9 +99,9 @@ const ProfilePage = () => {
   }
 
   const handleOpenCreateAlbum = () => {
-    setShowAlbum(true);
+    setShowAlbumCreate(true);
     return (
-      <Album />
+      <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
     );
   };
 
@@ -119,7 +120,7 @@ const ProfilePage = () => {
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}
       </div>
       <div className='mainPhotos'>
-        {showAlbum ? (
+        {showAlbumCreate ? (
           <Album />
         ) : (
           <>
