@@ -8,12 +8,13 @@ import './Album.css';
 
 
 
-const Album = () => {
+const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     const dispatch = useDispatch();
     const userPhotos = useSelector(state => state.photo.photos);
     const selected = new Array(userPhotos.length).fill(false);
     const { id } = useParams();
     const [alTitle, setAlTitle] = useState('');
+    const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
         // dispatch(photoActions.updatingState(id))
@@ -60,25 +61,33 @@ const Album = () => {
 
     return (
         <div className='AlbumCont'>
-            <form onSubmit={handleAlbumSubmit}>
-                <input
-                    type='text'
-                    value={alTitle}
-                    onChange={e => setAlTitle(e.target.value)}
-                    placeholder='Album Title'
-                    required
-                />
-                Select Photos For Album
-                <div className='imageSelection'>
-                    {userPhotos.map((photo, i) => {
-                        return <div key={photo.id} id={i} className='image notSelected' onClick={handleClickSelection}>
-                            {/* <NavLink to={`/photo/${photo.id}`} className='imageLink' /> */}
-                            <img id={`${photo.id},${i}`} src={photo.thumbSrc} alt='' />
-                        </div>
+            {showAlbum ? (
+                <div>
+                    {albums.map(ele => {
+
                     })}
                 </div>
-                <button type='submit'>Create Album</button>
-            </form>
+            ): (
+                <form onSubmit={handleAlbumSubmit}>
+                    <input
+                        type='text'
+                        value={alTitle}
+                        onChange={e => setAlTitle(e.target.value)}
+                        placeholder='Album Title'
+                        required
+                    />
+                    Select Photos For Album
+                    <div className='imageSelection'>
+                        {userPhotos.map((photo, i) => {
+                            return <div key={photo.id} id={i} className='image notSelected' onClick={handleClickSelection}>
+                                {/* <NavLink to={`/photo/${photo.id}`} className='imageLink' /> */}
+                                <img id={`${photo.id},${i}`} src={photo.thumbSrc} alt='' />
+                            </div>
+                        })}
+                    </div>
+                    <button type='submit'>Create Album</button>
+                </form>
+            )}
         </div>
     )
 }
