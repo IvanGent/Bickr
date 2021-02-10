@@ -27,8 +27,6 @@ router.get('/user/:id', asyncHandler(async(req, res) => {
         where: { userId: id}
     })
     const allAlbums = await albums;
-    // const 
-    console.log(allAlbums);
     return res.json({
         allAlbums
     })

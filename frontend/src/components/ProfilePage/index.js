@@ -100,9 +100,9 @@ const ProfilePage = () => {
 
   const handleOpenCreateAlbum = () => {
     setShowAlbumCreate(true);
-    return (
-      <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
-    );
+    // return (
+    //   <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
+    // );
   };
 
 
@@ -121,7 +121,7 @@ const ProfilePage = () => {
       </div>
       <div className='mainPhotos'>
         {showAlbumCreate ? (
-          <Album />
+          <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
         ) : (
           <>
           {place}
