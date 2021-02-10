@@ -116,17 +116,17 @@ const ProfilePage = () => {
   //   setAlbumId(check.id)
   // }
 
-  const handleAddPhotoToAlbum = async () => {
-    const album = await fetch(`/api/album/photo`, {
-      method: 'POST',
-      body: JSON.stringify({
-        albumId: albumId,
-        photoId: 4
-      })
-    });
-    const check = album.data
-    console.log(check)
-  }
+  // const handleAddPhotoToAlbum = async () => {
+  //   const album = await fetch(`/api/album/photo`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       albumId: albumId,
+  //       photoId: 4
+  //     })
+  //   });
+  //   const check = album.data
+  //   console.log(check)
+  // }
 
   return (
     <div className='profile'>
@@ -137,7 +137,7 @@ const ProfilePage = () => {
         </div>
       </div>
       <div onClick={handleOpenCreateAlbum}>CREATE ALBUM</div>
-      <div onClick={handleAddPhotoToAlbum}>ADD A PHOTO</div>
+      {/* <div onClick={handleAddPhotoToAlbum}>ADD A PHOTO</div> */}
       {addPhoto}
       <div>
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}
