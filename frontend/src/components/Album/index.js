@@ -45,19 +45,6 @@ const Album = () => {
         console.log(res)
     };
 
-    // const handleAlbum = async (e) => {
-    //     e.preventDefault();
-    //     const album = await fetch(`/api/album`, {
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             name: alTitle,
-    //             userId: id,
-    //         })
-    //     });
-    //     const check = album.data.createdAlbum
-    //     handleAlbumSubmit(check.id);
-    // }
-
     const handleClickSelection = (e) => {
         const pos = e.target.id.split(',')[1]
         const sel = document.getElementById(pos);
