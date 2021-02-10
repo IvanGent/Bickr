@@ -21,24 +21,7 @@ const Album = () => {
     }, [dispatch, id]);
 
 
-    const handleAlbumSubmit = async (albumId) => {
-        // e.preventDefault();
-        const photos = [];
-        userPhotos.forEach((ele, i) => {
-            if(selected[i]) photos.push(ele);
-        })
-        const res = await fetch('/api/album/photo', {
-            method: 'POST',
-            body: JSON.stringify({
-                albumId,
-                photos
-            })
-        })
-        const result = await res.json();
-        console.log(result)
-    };
-
-    const handleAlbum = async (e) => {
+    const handleAlbumSubmit = async (e, albumId) => {
         e.preventDefault();
         const album = await fetch(`/api/album`, {
             method: 'POST',
@@ -48,8 +31,34 @@ const Album = () => {
             })
         });
         const check = album.data.createdAlbum
-        handleAlbumSubmit(check.id);
-    }
+        const photos = [];
+        userPhotos.forEach((ele, i) => {
+            console.log(ele);
+            if(selected[i]) photos.push(ele.id);
+        })
+        console.log(photos)
+        const res = await fetch('/api/album/photo', {
+            method: 'POST',
+            body: JSON.stringify({
+                albumId: check.id,
+                photos
+            })
+        })
+        console.log(res)
+    };
+
+    // const handleAlbum = async (e) => {
+    //     e.preventDefault();
+    //     const album = await fetch(`/api/album`, {
+    //         method: 'POST',
+    //         body: JSON.stringify({
+    //             name: alTitle,
+    //             userId: id,
+    //         })
+    //     });
+    //     const check = album.data.createdAlbum
+    //     handleAlbumSubmit(check.id);
+    // }
 
     const handleClickSelection = (e) => {
         const pos = e.target.id.split(',')[1]
@@ -66,7 +75,7 @@ const Album = () => {
 
     return (
         <div className='AlbumCont'>
-            <form onSubmit={handleAlbum}>
+            <form onSubmit={handleAlbumSubmit}>
                 <input
                     type='text'
                     value={alTitle}
