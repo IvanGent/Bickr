@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import * as albumActions from '../../store/album';
-// import * as photoActions from '../../store/photos';
 import { useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
