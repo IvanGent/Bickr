@@ -99,6 +99,13 @@ const ProfilePage = () => {
     addPhoto = <></>;
   }
 
+  const handleOpenCreateAlbum = () => {
+    setShowAlbum(true);
+    return (
+      <Album />
+    );
+  };
+
   const handleAlbum = async () => {
     const album = await fetch(`/api/album`, {
       method: 'POST',
@@ -131,7 +138,7 @@ const ProfilePage = () => {
           <h4>{user.email}</h4>
         </div>
       </div>
-      <div onClick={handleAlbum}>CREATE ALBUM</div>
+      <div onClick={handleOpenCreateAlbum}>CREATE ALBUM</div>
       <div onClick={handleAddPhotoToAlbum}>ADD A PHOTO</div>
       {addPhoto}
       <div>

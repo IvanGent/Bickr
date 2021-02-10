@@ -17,7 +17,7 @@
 }
 
 .mainPhotos {
-  /* background-color: red; */
+  background-color: red;
   position: relative;
   min-height: 62vh;
   display: flex;
