@@ -22,30 +22,28 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
 
     const handleAlbumSubmit = async (e, albumId) => {
         e.preventDefault();
-        // const album = await fetch(`/api/album`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         name: alTitle,
-        //         userId: id,
-        //     })
-        // });
-        // const check = album.data.createdAlbum
-        // const photos = [];
-        // userPhotos.forEach((ele, i) => {
-        //     if(selected[i]) photos.push(ele.id);
-        // })
-        // const res = await fetch('/api/album/photo', {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         albumId: check.id,
-        //         photos
-        //     })
-        // })
+        const album = await fetch(`/api/album`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: alTitle,
+                userId: id,
+            })
+        });
+        const check = album.data.createdAlbum
+        const photos = [];
+        userPhotos.forEach((ele, i) => {
+            if(selected[i]) photos.push(ele.id);
+        })
+        const res = await fetch('/api/album/photo', {
+            method: 'POST',
+            body: JSON.stringify({
+                albumId: check.id,
+                photos
+            })
+        })
         const als = await fetch(`/api/album/user/${id}`)
         setAlbums(als.data.allAlbums);
-        console.log(als.data.allAlbums);
         setShowAlbum(true);
-        // console.log(res)
     };
 
     const handleClickSelection = (e) => {
