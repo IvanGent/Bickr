@@ -62,11 +62,6 @@ router.post('/photo', asyncHandler(async(req, res) => {
             photoId: id
         });
     })
-    // const mess = AlbumPhoto.addPhoto({ albumId, photoId});
-    // const message = await mess;
-    // return res.json({
-    //     message
-    // });
     return res.json({
         message: 'Photos added'
     })
