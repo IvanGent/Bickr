@@ -104,10 +104,14 @@ const ProfilePage = () => {
   };
 
   const handleShowAlbums = () => {
-    setShowAlbum(true)
+    setShowAlbum(true);
     setShowAlbumCreate(true);
   }
 
+  const handleShowPhotos = () => {
+    setShowAlbum(false);
+    setShowAlbumCreate(false);
+  }
 
   return (
     <div className='profile'>
