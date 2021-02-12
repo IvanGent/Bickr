@@ -79,7 +79,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                                 </div>
                             ) : (
                                 <div>
-                                    
+                                    <img src='../images/NoPhotos.jpg' alt='' />
                                 </div>
                             )}
                         </div>

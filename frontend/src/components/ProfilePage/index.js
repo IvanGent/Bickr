@@ -6,7 +6,6 @@ import { fetch } from '../../store/csrf';
 import Album from '../Album'
 import Footer from '../Footer'
 import './ProfilePage.css'
-import '../../images/Home.jpg'
 
 
 
