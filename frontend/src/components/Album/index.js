@@ -67,11 +67,10 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
             {showAlbum ? (
                 <div className='showAlbum'>
                     {albums.map(ele => (
-                        <div key={ele.id}>
-                            <h3>{ele.name}</h3>
+                        <div key={ele.id} className='albums'>
                             {/* {ele.AlbumPhotos.map(ele => (
                                 <div key={ele.Photo.id}>
-                                    <img id={ele.Photo.id} src={ele.Photo.thumbSrc} alt='' />
+                                <img id={ele.Photo.id} src={ele.Photo.thumbSrc} alt='' />
                                 </div>
                             ))} */}
                             {ele.AlbumPhotos.length ? (
@@ -83,6 +82,8 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                                     <img id='albumStock' src={AlbumStock} alt='' />
                                 </div>
                             )}
+                            <h3>{ele.name}</h3>
+                            <a></a>
                         </div>
                     ))}
                 </div>
