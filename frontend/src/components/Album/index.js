@@ -15,6 +15,10 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
+        (async () => {
+            const als = await fetch(`/api/album/user/${id}`)
+            setAlbums(als.data.allAlbums);
+        })()
     }, [dispatch, id]);
 
 
@@ -72,7 +76,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                         </div>
                     ))}
                 </div>
-            ): (
+            ):(
                 <form onSubmit={handleAlbumSubmit}>
                     <input
                         type='text'

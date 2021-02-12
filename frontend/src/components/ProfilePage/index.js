@@ -99,8 +99,14 @@ const ProfilePage = () => {
   }
 
   const handleOpenCreateAlbum = () => {
+    setShowAlbum(false);
     setShowAlbumCreate(true);
   };
+
+  const handleShowAlbums = () => {
+    setShowAlbum(true)
+    setShowAlbumCreate(true);
+  }
 
 
   return (
@@ -112,6 +118,8 @@ const ProfilePage = () => {
         </div>
       </div>
       <div onClick={handleOpenCreateAlbum}>CREATE ALBUM</div>
+      <div onClick={handleShowAlbums}>Albums</div>
+      <div onClick={handleShowPhotos}>Photos</div>
       {addPhoto}
       <div>
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}
