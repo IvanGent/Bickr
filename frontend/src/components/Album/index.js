@@ -32,7 +32,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
         userPhotos.forEach((ele, i) => {
             if(selected[i]) photos.push(ele.id);
         })
-        const res = await fetch('/api/album/photo', {
+        await fetch('/api/album/photo', {
             method: 'POST',
             body: JSON.stringify({
                 albumId: check.id,
