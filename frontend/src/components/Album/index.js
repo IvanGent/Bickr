@@ -64,7 +64,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     return (
         <div className='AlbumCont'>
             {showAlbum ? (
-                <div>
+                <div className='showAlbum'>
                     {albums.map(ele => (
                         <div key={ele.id}>
                             <h3>{ele.name}</h3>

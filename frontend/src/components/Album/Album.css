@@ -40,17 +40,6 @@
     /* opacity: .7; */
 }
 
-/* .image a {
-    background-color: blue;
-    margin: 0;
-    width: 250px;
-    height: 180px;
-}
-
-.image a:hover {
-
-} */
-
 .notSelected {
     opacity: .3;
 }
@@ -58,3 +47,4 @@
 .selected {
     opacity: 1;
 }
+
