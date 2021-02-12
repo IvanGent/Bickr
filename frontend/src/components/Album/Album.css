@@ -51,3 +51,9 @@
 .showAlbum {
     display: flex;
 }
+
+#albumStock {
+    width: 150px;
+    height: 100px;
+    opacity: .7;
+}

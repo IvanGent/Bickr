@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
+import AlbumStock from '../../images/NoPhotos.jpg'
 
 
 
@@ -79,7 +80,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                                 </div>
                             ) : (
                                 <div>
-                                    <img src='../images/NoPhotos.jpg' alt='' />
+                                    <img id='albumStock' src={AlbumStock} alt='' />
                                 </div>
                             )}
                         </div>
