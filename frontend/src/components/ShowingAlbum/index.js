@@ -8,12 +8,14 @@ import './ShowingAlbum.css'
 const ShowngAlbum = ({ album }) => {
     const [albumPhotos, setAlbum] = useState([]);
     const [albumInfo, setAlbumInfo] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/album/${album}`)
             setAlbumInfo(res.data.album);
             setAlbum(res.data.album.AlbumPhotos);
+            setLoaded(true);
         })()
 
     }, [])
@@ -22,6 +24,8 @@ const ShowngAlbum = ({ album }) => {
         <div className='AlbumCont'>
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
+                {loaded ? (
+                    <>
                     {albumPhotos.length > 0 ? (
                         <div className='albumPhotos'>
                             {albumPhotos.map(ele => (
@@ -36,7 +40,12 @@ const ShowngAlbum = ({ album }) => {
                             <h3 id='noPhotos' >No Photos</h3>
                             <img id='stockPhoto' src={AlbumStock} alt='Stock no photos' />
                         </div>
+                        // <h3>Loading...</h3>
                     )}
+                    </>
+                ): (
+                    <h3>Loading...</h3>
+                )}
             </div>
         </div>
     )
