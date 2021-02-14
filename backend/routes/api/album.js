@@ -18,7 +18,6 @@ router.get('/:id', asyncHandler(async(req, res) => {
         }]
     }
     const album = await Album.findByPk(albumId, options);
-    console.log('THIS IS THE ALBUM',album);
     return res.json({
         album
     })
@@ -36,8 +35,6 @@ router.get('/user/:id', asyncHandler(async(req, res) => {
         }],
         where: { userId: id}
     })
-    console.log(albums);
-    // const allAlbums = await albums;
     return res.json({
         albums
     })
