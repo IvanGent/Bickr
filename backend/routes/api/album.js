@@ -28,7 +28,6 @@ router.get('/user/:id', asyncHandler(async(req, res) => {
     const albums = await Album.findAll({
         include: [{
             model: AlbumPhoto,
-            // as: 'AlbumPhotos',
             include: [{
                 model: Photo
             }],
@@ -51,8 +50,13 @@ router.post('/', asyncHandler(async(req, res) => {
 }));
 
 router.delete('/:id', asyncHandler(async(req, res) => {
-    const { albumId } = req.params.id;
-    const mess = await Album.deleteAlbum({albumId});
+    const id = req.params.id;
+    await AlbumPhoto.destroy({
+        where: {
+            albumId: id
+        }
+    })
+    const mess = await Album.deleteAlbum({id});
     console.log(mess)
     return res.json({
         mess
