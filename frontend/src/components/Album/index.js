@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
 import AlbumStock from '../../images/NoPhotos.jpg'
@@ -83,7 +83,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                                 </div>
                             )}
                             <h3>{ele.name}</h3>
-                            <a></a>
+                            
                         </div>
                     ))}
                 </div>
