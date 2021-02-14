@@ -23,14 +23,18 @@ const ShowngAlbum = ({ album }) => {
 
     }, [])
 
+    const handleDeleteAlbum = async () => {
+        
+    }
+
     return (
         <div className='AlbumCont'>
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
                 {albumInfo.userId === userId && (
-                    <div>
-                        <button id='deleteAlbum'>Delete Album</button>
-                    </div>
+                    // <div>
+                        <button id='deleteAlbum' onClick={handleDeleteAlbum}>Delete Album</button>
+                    // </div>
                 )}
                 {loaded ? (
                     <>
