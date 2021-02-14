@@ -1,7 +1,15 @@
 import { fetch } from './csrf';
 
+const UPDATE_ALBUM = 'album/updateAlbum';
 const ADD_PHOTO = 'album/addPhoto';
 const DELETE_PHOTO = 'album/deletePhoto';
+
+const updateAlbum = (album) => {
+    return {
+        type: UPDATE_ALBUM,
+        payload: album
+    }
+}
 
 const addPhoto = (photo) => {
     return {
@@ -14,6 +22,14 @@ const deletePhoto = () => {
     return {
         type: DELETE_PHOTO,
     }
+}
+
+export const updatingAlbum = (data) => async(dispatch) => {
+    const { id } = data;
+    const res = await fetch(`/api/album/user/${id}`)
+    await dispatch(updateAlbum(res.data.albums))
+    // console.log(res);
+    return res;
 }
 
 export const addingPhoto = (data) => async(dispatch) => {
@@ -47,6 +63,9 @@ let initialState = { album: [] };
 const albumReducer = (state = initialState, { type, payload }) => {
     let newState;
     switch(type) {
+        case UPDATE_ALBUM:
+            newState = { album: [payload]};
+            return newState;
         case ADD_PHOTO:
             newState = { album: [...state.album, payload]}
             return newState;

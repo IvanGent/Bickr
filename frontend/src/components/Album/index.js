@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import * as albumActions from '../../store/album';
 import { fetch } from '../../store/csrf';
 import './Album.css';
 import AlbumStock from '../../images/NoPhotos.jpg'
@@ -19,7 +20,8 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
 
     useEffect(() => {
         (async () => {
-            const als = await fetch(`/api/album/user/${id}`)
+            // const als = await fetch(`/api/album/user/${id}`)
+            const als = await dispatch(albumActions.updatingAlbum({id}))
             setAlbums(als.data.albums);
         })()
     }, [dispatch, id]);
