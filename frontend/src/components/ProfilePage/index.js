@@ -121,9 +121,11 @@ const ProfilePage = () => {
           <h4>{user.email}</h4>
         </div>
       </div>
-      <div onClick={handleOpenCreateAlbum}>CREATE ALBUM</div>
-      <div onClick={handleShowAlbums}>Albums</div>
-      <div onClick={handleShowPhotos}>Photos</div>
+      <div className='tabs'>
+        <div onClick={handleOpenCreateAlbum}>Create An Album</div>
+        <div onClick={handleShowAlbums}>Albums</div>
+        <div onClick={handleShowPhotos}>Photos</div>
+      </div>
       {addPhoto}
       <div>
         {errors.map((error, i) => <div key={error.id}>{error}</div>)}

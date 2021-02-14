@@ -120,3 +120,16 @@
   margin-left: 350px;
   font-weight: 100;
 }
+
+.tabs {
+  display: flex;
+}
+
+.tabs div {
+  margin: 5px 20px;
+  cursor: pointer;
+}
+
+.tabs div:hover {
+  transform: scale(1.2);
+}
