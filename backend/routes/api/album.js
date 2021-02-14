@@ -12,6 +12,9 @@ router.get('/:id', asyncHandler(async(req, res) => {
     const options = {
         include: [{
             model: AlbumPhoto,
+            include: [{
+                model: Photo
+            }]
         }]
     }
     const album = await Album.findByPk(albumId, options);
