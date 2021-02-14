@@ -129,7 +129,7 @@ const ProfilePage = () => {
       </div>
       <div className='mainPhotos'>
         {showAlbumCreate ? (
-          <Album setShowAlbumCreate={setShowAlbumCreate} setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
+          <Album setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
         ) : (
           <>
           {place}

@@ -8,7 +8,7 @@ import ShowingAlbum from '../ShowingAlbum';
 
 
 
-const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
+const Album = ({ setShowAlbum, showAlbum }) => {
     const dispatch = useDispatch();
     const userPhotos = useSelector(state => state.photo.photos);
     const selected = new Array(userPhotos.length).fill(false);
