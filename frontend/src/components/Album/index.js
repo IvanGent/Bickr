@@ -110,7 +110,6 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
                     <div className='imageSelection'>
                         {userPhotos.map((photo, i) => {
                             return <div key={photo.id} id={i} className='image notSelected' onClick={handleClickSelection}>
-                                {/* <NavLink to={`/photo/${photo.id}`} className='imageLink' /> */}
                                 <img id={`${photo.id},${i}`} src={photo.thumbSrc} alt='' />
                             </div>
                         })}
