@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import * as photoActions from '../../store/photos';
-// import * as commentActions from '../../store/comments';
 import { fetch } from '../../store/csrf';
 import Comment from '../Comment';
 import './Picture.css'
