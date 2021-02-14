@@ -11,6 +11,7 @@ const updateAlbum = (album) => {
     }
 }
 
+// Will be moved
 const addPhoto = (photo) => {
     return {
         type: ADD_PHOTO,
@@ -32,6 +33,7 @@ export const updatingAlbum = (data) => async(dispatch) => {
     return res;
 }
 
+// Will be moved
 export const addingPhoto = (data) => async(dispatch) => {
     const { photos, albumId } = data;
     const res = await fetch(`/api/album/photo`, {
@@ -58,20 +60,13 @@ export const removingPhoto = (data) => async(dispatch) => {
     return res
 }
 
-let initialState = { album: [] };
+let initialState = { albums: [] };
 
 const albumReducer = (state = initialState, { type, payload }) => {
     let newState;
     switch(type) {
         case UPDATE_ALBUM:
-            newState = { album: [payload]};
-            return newState;
-        case ADD_PHOTO:
-            newState = { album: [...state.album, payload]}
-            return newState;
-        case DELETE_PHOTO:
-            // let arr = state.filter((ele, i) => i !== payload)
-            // newState = { album: arr}
+            newState = { albums: [payload]};
             return newState;
         default:
             return state;

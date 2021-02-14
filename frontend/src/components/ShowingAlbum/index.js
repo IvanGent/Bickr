@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
+import * as albumActions from '../../store/album';
 import AlbumStock from '../../images/NoPhotos.jpg'
 import './ShowingAlbum.css'
 import { useSelector } from 'react-redux';
 
 
 const ShowngAlbum = ({ album, setShowingAlbum }) => {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
+    const {id} = useParams();
     const [albumPhotos, setAlbum] = useState([]);
     const [albumInfo, setAlbumInfo] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -25,7 +29,8 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
 
     const handleDeleteAlbum = async () => {
         console.log(albumInfo)
-        await fetch(`/api/album/${albumInfo.id}`, {method: 'DELETE'})
+        await fetch(`/api/album/${albumInfo.id}`, {method: 'DELETE'});
+        await dispatch(albumActions.updatingAlbum({id}));
         setShowingAlbum(false);
     }
 

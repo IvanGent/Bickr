@@ -15,14 +15,19 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
     const selected = new Array(userPhotos.length).fill(false);
     const { id } = useParams();
     const [alTitle, setAlTitle] = useState('');
-    const [albums, setAlbums] = useState([]);
+    // const [albums, setAlbums] = useState([]);
+    const albums = useSelector(state => state.album.albums[0])
     const [selectedAlbum, setSelectedAlbum] = useState();
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         (async () => {
             // const als = await fetch(`/api/album/user/${id}`)
             const als = await dispatch(albumActions.updatingAlbum({id}))
-            setAlbums(als.data.albums);
+            console.log(als)
+            console.log(albums)
+            setLoaded(true);
+            // setAlbums(als.data.albums);
         })()
     }, [dispatch, id]);
 
@@ -49,7 +54,8 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
             })
         })
         const als = await fetch(`/api/album/user/${id}`)
-        setAlbums(als.data.allAlbums);
+        await dispatch(albumActions.updatingAlbum({id}))
+        // setAlbums(als.data.allAlbums);
         setShowAlbum(true);
     };
 
@@ -76,28 +82,39 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
         <div className='AlbumCont'>
             {showAlbum ? (
                 <>
-                {!showingAlbum ? (
-                <div className='showAlbum'>
-                    {albums.map(ele => (
-                        <div key={ele.id} className='albums' onClick={handleShowAlbum}>
-                            {ele.AlbumPhotos.length ? (
-                                <div>
-                                    <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
-                                </div>
-                            ) : (
-                                <div>
-                                    <img id={ele.id} className='albumStock' src={AlbumStock} alt='' />
-                                </div>
-                            )}
-                            <h3 id={ele.id} >{ele.name}</h3>
-                            
-                        </div>
-                    ))}
-                </div>
-                ): (
-                    <ShowingAlbum album={selectedAlbum} setShowingAlbum={setShowingAlbum} />
-                )}
-
+                {/* {loaded ? (
+                    <div> */}
+                        {!showingAlbum ? (
+                            <div className='showAlbum'>
+                                {loaded ? (
+                                    <div>
+                                        {albums.map(ele => (
+                                            <div key={ele.id} className='albums' onClick={handleShowAlbum}>
+                                                {ele.AlbumPhotos.length ? (
+                                                    <div>
+                                                        <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
+                                                    </div>
+                                                ) : (
+                                                    <div>
+                                                        <img id={ele.id} className='albumStock' src={AlbumStock} alt='' />
+                                                    </div>
+                                                )}
+                                                <h3 id={ele.id} >{ele.name}</h3>
+                                                
+                                            </div>
+                                        ))}
+                                    </div>
+                                ): (
+                                    <h3>Loading..</h3>
+                                    )}
+                            </div>
+                        ): (
+                            <ShowingAlbum album={selectedAlbum} setShowingAlbum={setShowingAlbum} />
+                        )}
+                    {/* </div>
+                ) : (
+                    <h3>Loading...</h3>
+                )} */}
                 </>
             ):(
                 <form onSubmit={handleAlbumSubmit}>
