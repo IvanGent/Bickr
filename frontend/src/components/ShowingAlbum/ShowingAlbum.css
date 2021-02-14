@@ -1,0 +1,22 @@
+.albumContents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.albumContents h1 {
+    font-size: 3em ;
+}
+
+.albumPhotos {
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.albumPhotos a {
+    margin: 0;
+    /* background-color: rgba(0, 0,0,.4); */
+    width: 250px;
+    height: 150px;
+}
