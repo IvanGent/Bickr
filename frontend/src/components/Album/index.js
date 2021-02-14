@@ -82,39 +82,33 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
         <div className='AlbumCont'>
             {showAlbum ? (
                 <>
-                {/* {loaded ? (
-                    <div> */}
-                        {!showingAlbum ? (
-                            <div className='showAlbum'>
-                                {loaded ? (
-                                    <div>
-                                        {albums.map(ele => (
-                                            <div key={ele.id} className='albums' onClick={handleShowAlbum}>
-                                                {ele.AlbumPhotos.length ? (
-                                                    <div>
-                                                        <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
-                                                    </div>
-                                                ) : (
-                                                    <div>
-                                                        <img id={ele.id} className='albumStock' src={AlbumStock} alt='' />
-                                                    </div>
-                                                )}
-                                                <h3 id={ele.id} >{ele.name}</h3>
-                                                
-                                            </div>
-                                        ))}
-                                    </div>
-                                ): (
-                                    <h3>Loading..</h3>
-                                    )}
-                            </div>
-                        ): (
-                            <ShowingAlbum album={selectedAlbum} setShowingAlbum={setShowingAlbum} />
-                        )}
-                    {/* </div>
-                ) : (
-                    <h3>Loading...</h3>
-                )} */}
+                    {!showingAlbum ? (
+                        <div className='showAlbum'>
+                            {loaded ? (
+                                <div>
+                                    {albums.map(ele => (
+                                        <div key={ele.id} className='albums' onClick={handleShowAlbum}>
+                                            {ele.AlbumPhotos.length ? (
+                                                <div>
+                                                    <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                    <img id={ele.id} className='albumStock' src={AlbumStock} alt='' />
+                                                </div>
+                                            )}
+                                            <h3 id={ele.id} >{ele.name}</h3>
+                                            
+                                        </div>
+                                    ))}
+                                </div>
+                            ): (
+                                <h3>Loading..</h3>
+                                )}
+                        </div>
+                    ): (
+                        <ShowingAlbum album={selectedAlbum} setShowingAlbum={setShowingAlbum} />
+                    )}
                 </>
             ):(
                 <form onSubmit={handleAlbumSubmit}>
