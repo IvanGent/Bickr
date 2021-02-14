@@ -8,14 +8,13 @@ import ShowingAlbum from '../ShowingAlbum';
 
 
 
-const Album = ({ setShowAlbum, showAlbum }) => {
+const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
     const dispatch = useDispatch();
     const userPhotos = useSelector(state => state.photo.photos);
     const selected = new Array(userPhotos.length).fill(false);
     const { id } = useParams();
     const [alTitle, setAlTitle] = useState('');
     const [albums, setAlbums] = useState([]);
-    const [showingAlbum, setShowingAlbum] = useState(false);
     const [selectedAlbum, setSelectedAlbum] = useState();
 
     useEffect(() => {

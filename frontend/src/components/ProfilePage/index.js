@@ -18,7 +18,7 @@ const ProfilePage = () => {
   const [errors, setErrors] = useState([]);
   const [showAlbum, setShowAlbum] = useState(false);
   const [showAlbumCreate, setShowAlbumCreate] = useState(false);
-
+  const [showingAlbum, setShowingAlbum] = useState(false);
 
 
   useEffect(() => {
@@ -103,6 +103,7 @@ const ProfilePage = () => {
   };
 
   const handleShowAlbums = () => {
+    setShowingAlbum(false);
     setShowAlbum(true);
     setShowAlbumCreate(true);
   }
@@ -129,7 +130,12 @@ const ProfilePage = () => {
       </div>
       <div className='mainPhotos'>
         {showAlbumCreate ? (
-          <Album setShowAlbum={setShowAlbum} showAlbum={showAlbum}/>
+          <Album 
+            setShowAlbum={setShowAlbum} 
+            showAlbum={showAlbum}
+            showingAlbum={showingAlbum}
+            setShowingAlbum={setShowingAlbum}
+            />
         ) : (
           <>
           {place}
