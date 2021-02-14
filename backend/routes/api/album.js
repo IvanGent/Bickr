@@ -1,14 +1,21 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+// const { contained } = require('sequelize/types/lib/operators');
 
 const { Album, AlbumPhoto, Photo } = require('../../db/models');
-const photo = require('../../db/models/photo');
+// const photo = require('../../db/models/photo');
 
 const router = express.Router();
 
 router.get('/:id', asyncHandler(async(req, res) => {
     const albumId = req.params.id;
-    const album = Album.findByPk(albumId);
+    const options = {
+        include: [{
+            model: AlbumPhoto,
+        }]
+    }
+    const album = await Album.findByPk(albumId, options);
+    console.log('THIS IS THE ALBUM',album);
     return res.json({
         album
     })
@@ -16,7 +23,7 @@ router.get('/:id', asyncHandler(async(req, res) => {
 
 router.get('/user/:id', asyncHandler(async(req, res) => {
     const id = req.params.id;
-    const albums = Album.findAll({
+    const albums = await Album.findAll({
         include: [{
             model: AlbumPhoto,
             // as: 'AlbumPhotos',
@@ -26,9 +33,10 @@ router.get('/user/:id', asyncHandler(async(req, res) => {
         }],
         where: { userId: id}
     })
-    const allAlbums = await albums;
+    console.log(albums);
+    // const allAlbums = await albums;
     return res.json({
-        allAlbums
+        albums
     })
 }))
 

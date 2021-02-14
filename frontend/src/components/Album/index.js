@@ -21,7 +21,7 @@ const Album = ({ setShowAlbum, showAlbum }) => {
     useEffect(() => {
         (async () => {
             const als = await fetch(`/api/album/user/${id}`)
-            setAlbums(als.data.allAlbums);
+            setAlbums(als.data.albums);
         })()
     }, [dispatch, id]);
 
