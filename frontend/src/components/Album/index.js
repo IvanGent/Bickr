@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
 import AlbumStock from '../../images/NoPhotos.jpg'
@@ -79,11 +79,6 @@ const Album = ({ setShowAlbum, showAlbum }) => {
                 <div className='showAlbum'>
                     {albums.map(ele => (
                         <div key={ele.id} className='albums' onClick={handleShowAlbum}>
-                            {/* {ele.AlbumPhotos.map(ele => (
-                                <div key={ele.Photo.id}>
-                                <img id={ele.Photo.id} src={ele.Photo.thumbSrc} alt='' />
-                                </div>
-                            ))} */}
                             {ele.AlbumPhotos.length ? (
                                 <div>
                                     <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />

@@ -3,18 +3,22 @@ import { fetch } from '../../store/csrf';
 
 
 const ShowngAlbum = ({ album }) => {
-    // const user 
+    const [albumPhotos, setAlbum] = useState([]);
+
     useEffect(() => {
         (async () => {
             console.log(album)
             const res = await fetch(`/api/album/${album}`)
-            console.log(res.data)
+            setAlbum(res.data.album);
+            console.log(res.data.album)
         })()
-    }, [])
+
+    }, [albumPhotos.length])
 
     return (
         <div>
-            Is this Displaying.
+            <h1>{albumPhotos.name}</h1>
+            
         </div>
     )
 }
