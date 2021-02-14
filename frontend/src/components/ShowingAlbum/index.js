@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
+import AlbumStock from '../../images/NoPhotos.jpg'
 import './ShowingAlbum.css'
 
 
@@ -10,11 +11,9 @@ const ShowngAlbum = ({ album }) => {
 
     useEffect(() => {
         (async () => {
-            console.log(album)
             const res = await fetch(`/api/album/${album}`)
             setAlbumInfo(res.data.album);
             setAlbum(res.data.album.AlbumPhotos);
-            console.log(res.data.album)
         })()
 
     }, [])
@@ -23,7 +22,6 @@ const ShowngAlbum = ({ album }) => {
         <div className='AlbumCont'>
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
-                {/* <div className='albumPhotos'> */}
                     {albumPhotos.length > 0 ? (
                         <div className='albumPhotos'>
                             {albumPhotos.map(ele => (
@@ -34,11 +32,11 @@ const ShowngAlbum = ({ album }) => {
                             ))}
                         </div>
                     ): (
-                        <div>
-                            
+                        <div className='noPhotos'>
+                            <h3 id='noPhotos' >No Photos</h3>
+                            <img id='stockPhoto' src={AlbumStock} alt='Stock no photos' />
                         </div>
                     )}
-                {/* </div> */}
             </div>
         </div>
     )

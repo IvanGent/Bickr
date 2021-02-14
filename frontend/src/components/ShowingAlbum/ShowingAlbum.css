@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .albumContents h1 {
@@ -19,4 +20,24 @@
     /* background-color: rgba(0, 0,0,.4); */
     width: 250px;
     height: 150px;
+}
+
+#stockPhoto {
+    width: 100%;
+    height: auto;
+    opacity: .5;
+    /* position: absolute; */
+}
+
+#noPhotos {
+    position: absolute;
+    /* right: 47%; */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.noPhotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
