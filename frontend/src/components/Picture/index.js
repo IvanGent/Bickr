@@ -32,10 +32,6 @@ const Picture = () => {
       .catch(res => {
         if(res.data && res.data.errors) setErrors(res.data.errors)
       })
-    // dispatch(photoActions.updatingState(sessionUser.id))
-    //   .catch(res => {
-    //     if(res.data && res.data.errors) setErrors(res.data.errors)
-    //   })
     history.replace(`/profile/${sessionUser.id}`);
   }
 

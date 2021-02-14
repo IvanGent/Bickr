@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import AlbumStock from '../../images/NoPhotos.jpg'
 import './ShowingAlbum.css'
+import { useSelector } from 'react-redux';
 
 
 const ShowngAlbum = ({ album }) => {
+    const sessionUser = useSelector(state => state.session.user);
+    const userId = sessionUser.id;
     const [albumPhotos, setAlbum] = useState([]);
     const [albumInfo, setAlbumInfo] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -24,6 +27,11 @@ const ShowngAlbum = ({ album }) => {
         <div className='AlbumCont'>
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
+                {albumInfo.userId === userId && (
+                    <div>
+                        <button id='deleteAlbum'>Delete Album</button>
+                    </div>
+                )}
                 {loaded ? (
                     <>
                     {albumPhotos.length > 0 ? (
