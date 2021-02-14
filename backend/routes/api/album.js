@@ -50,12 +50,12 @@ router.post('/', asyncHandler(async(req, res) => {
     });
 }));
 
-router.delete('/', asyncHandler(async(req, res) => {
-    const { albumId } = req.body;
-    const mess = Album.deleteAlbum({albumId})
-    const message = await mess;
+router.delete('/:id', asyncHandler(async(req, res) => {
+    const { albumId } = req.params.id;
+    const mess = await Album.deleteAlbum({albumId});
+    console.log(mess)
     return res.json({
-        message
+        mess
     });
 }));
 

@@ -6,7 +6,7 @@ import './ShowingAlbum.css'
 import { useSelector } from 'react-redux';
 
 
-const ShowngAlbum = ({ album }) => {
+const ShowngAlbum = ({ album, setShowingAlbum }) => {
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
     const [albumPhotos, setAlbum] = useState([]);
@@ -24,7 +24,8 @@ const ShowngAlbum = ({ album }) => {
     }, [])
 
     const handleDeleteAlbum = async () => {
-        
+        await fetch(`/api/album/${albumInfo.id}`)
+        setShowingAlbum(false);
     }
 
     return (

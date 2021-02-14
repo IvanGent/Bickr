@@ -93,7 +93,7 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
                     ))}
                 </div>
                 ): (
-                    <ShowingAlbum album={selectedAlbum} />
+                    <ShowingAlbum album={selectedAlbum} setShowingAlbum={setShowingAlbum} />
                 )}
 
                 </>
