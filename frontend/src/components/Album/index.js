@@ -16,6 +16,7 @@ const Album = ({ setShowAlbum, showAlbum }) => {
     const [alTitle, setAlTitle] = useState('');
     const [albums, setAlbums] = useState([]);
     const [showingAlbum, setShowingAlbum] = useState(false);
+    const [selectedAlbum, setSelectedAlbum] = useState();
 
     useEffect(() => {
         (async () => {
@@ -65,7 +66,9 @@ const Album = ({ setShowAlbum, showAlbum }) => {
     }
 
     const handleShowAlbum = (e) => {
-        console.log(e.target.id)
+        // console.log(e.target.id)
+        setSelectedAlbum(e.target.id);
+        setShowingAlbum(true);
     }
 
     return (
@@ -96,7 +99,7 @@ const Album = ({ setShowAlbum, showAlbum }) => {
                     ))}
                 </div>
                 ): (
-                    <ShowingAlbum />
+                    <ShowingAlbum album={selectedAlbum} />
                 )}
 
                 </>
