@@ -14,6 +14,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     const { id } = useParams();
     const [alTitle, setAlTitle] = useState('');
     const [albums, setAlbums] = useState([]);
+    const [showingAlbum, setShowingAlbum] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -62,12 +63,16 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
         return selected[pos] ? selected[pos] = false : selected[pos] = true;
     }
 
+    const handleShowAlbum = (e) => {
+        console.log(e.target.id)
+    }
+
     return (
         <div className='AlbumCont'>
             {showAlbum ? (
                 <div className='showAlbum'>
                     {albums.map(ele => (
-                        <div key={ele.id} className='albums'>
+                        <div key={ele.id} className='albums' onClick={handleShowAlbum}>
                             {/* {ele.AlbumPhotos.map(ele => (
                                 <div key={ele.Photo.id}>
                                 <img id={ele.Photo.id} src={ele.Photo.thumbSrc} alt='' />
@@ -79,7 +84,7 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                                 </div>
                             ) : (
                                 <div>
-                                    <img id='albumStock' src={AlbumStock} alt='' />
+                                    <img className='albumStock' src={AlbumStock} alt='' />
                                 </div>
                             )}
                             <h3>{ele.name}</h3>
