@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import './Album.css';
 import AlbumStock from '../../images/NoPhotos.jpg'
+import ShowingAlbum from '../ShowingAlbum';
 
 
 
@@ -70,6 +71,8 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
     return (
         <div className='AlbumCont'>
             {showAlbum ? (
+                <>
+                {!showingAlbum ? (
                 <div className='showAlbum'>
                     {albums.map(ele => (
                         <div key={ele.id} className='albums' onClick={handleShowAlbum}>
@@ -80,18 +83,23 @@ const Album = ({ setShowAlbumCreate, setShowAlbum, showAlbum }) => {
                             ))} */}
                             {ele.AlbumPhotos.length ? (
                                 <div>
-                                    <img id={ele.AlbumPhotos[0].Photo.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
+                                    <img id={ele.id} src={ele.AlbumPhotos[0].Photo.thumbSrc} alt='' />
                                 </div>
                             ) : (
                                 <div>
-                                    <img className='albumStock' src={AlbumStock} alt='' />
+                                    <img id={ele.id} className='albumStock' src={AlbumStock} alt='' />
                                 </div>
                             )}
-                            <h3>{ele.name}</h3>
+                            <h3 id={ele.id} >{ele.name}</h3>
                             
                         </div>
                     ))}
                 </div>
+                ): (
+                    <ShowingAlbum />
+                )}
+
+                </>
             ):(
                 <form onSubmit={handleAlbumSubmit}>
                     <input
