@@ -29,7 +29,6 @@ export const updatingAlbum = (data) => async(dispatch) => {
     const { id } = data;
     const res = await fetch(`/api/album/user/${id}`)
     await dispatch(updateAlbum(res.data.albums))
-    // console.log(res);
     return res;
 }
 
