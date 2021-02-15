@@ -1,11 +1,14 @@
+import React from 'react';
+import {NavLink} from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => (
-  <div className='footer'>
+  <section className='footer'>
+    <a href="https://github.com/IvanGent/Bickr/blob/master/README.md" >About</a>
     {/* <footer>
       <a href="https://github.com/IvanGent/Bickr/blob/master/README.md">About</a>
     </footer> */}
-  </div>
+  </section>
   );
 
 export default Footer;

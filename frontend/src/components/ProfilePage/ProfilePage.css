@@ -20,6 +20,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  min-height: 400px;
   margin: 80px;
   border-top: 1px solid lightgray;
   height: auto;

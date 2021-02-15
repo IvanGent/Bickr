@@ -35,18 +35,14 @@
 }
 
 .userMain {
-  /* background-color: red; */
-  /* height: 94vh; */
   height: 100%;
   width: 100vw;
   position: absolute;
-  /* margin-top: 100px; */
 }
 
 .gridContainer {
   display: flex;
   justify-content: center;
-  /* border: solid black 5px; */
   padding: 20px;
   background-color: rgb(245, 245, 245);
 
