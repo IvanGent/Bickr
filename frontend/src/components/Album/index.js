@@ -51,6 +51,7 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
         })
         await dispatch(albumActions.updatingAlbum({id}))
         setAlTitle('');
+        setShowingAlbum(false);
         setShowAlbum(true);
     };
 
