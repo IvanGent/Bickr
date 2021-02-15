@@ -44,7 +44,6 @@ const ProfilePage = () => {
     }
 
     reader.onload = function(e) {
-      // const original = e.target.result;
       const img = document.createElement('img');
       img.src = e.target.result
 
