@@ -44,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    photoId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Album',
