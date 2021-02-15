@@ -83,9 +83,9 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
             {showAlbum ? (
                 <>
                     {!showingAlbum ? (
-                        <div className='showAlbum'>
+                        <div>
                             {loaded ? (
-                                <div>
+                                <div className='showAlbum'>
                                     {albums.map(ele => (
                                         <div key={ele.id} className='albums' onClick={handleShowAlbum}>
                                             {ele.AlbumPhotos.length ? (
