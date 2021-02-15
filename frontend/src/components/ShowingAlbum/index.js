@@ -28,7 +28,6 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
     }, [])
 
     const handleDeleteAlbum = async () => {
-        console.log(albumInfo)
         await fetch(`/api/album/${albumInfo.id}`, {method: 'DELETE'});
         await dispatch(albumActions.updatingAlbum({id}));
         setShowingAlbum(false);

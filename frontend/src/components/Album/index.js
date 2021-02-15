@@ -15,19 +15,15 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
     const selected = new Array(userPhotos.length).fill(false);
     const { id } = useParams();
     const [alTitle, setAlTitle] = useState('');
-    // const [albums, setAlbums] = useState([]);
+
     const albums = useSelector(state => state.album.albums[0])
     const [selectedAlbum, setSelectedAlbum] = useState();
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         (async () => {
-            // const als = await fetch(`/api/album/user/${id}`)
-            const als = await dispatch(albumActions.updatingAlbum({id}))
-            console.log(als)
-            console.log(albums)
+            await dispatch(albumActions.updatingAlbum({id}))
             setLoaded(true);
-            // setAlbums(als.data.albums);
         })()
     }, [dispatch, id]);
 
