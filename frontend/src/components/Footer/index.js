@@ -6,7 +6,6 @@ import LinkedIn from '../../images/LinkedIn.png'
 
 const Footer = () => (
   <section className='footer'>
-    <a href="https://github.com/IvanGent/Bickr/blob/master/README.md" >README</a>
     <a href="https://github.com/IvanGent">
       <img src={Github} alt='github' />
     </a>
@@ -16,9 +15,7 @@ const Footer = () => (
     <a href="https://angel.co/u/ivan-gentille" >
       <img src={AngelList} alt='angellist' />
     </a>
-    {/* <footer>
-      <a href="https://github.com/IvanGent/Bickr/blob/master/README.md">About</a>
-    </footer> */}
+    <a href="https://github.com/IvanGent/Bickr/blob/master/README.md" >README</a>
   </section>
   );
 
