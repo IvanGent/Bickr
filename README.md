@@ -3,6 +3,8 @@
 **Table of Contents**
 - [Bickr](#bickr)
   - [Description](#description)
+  - [Technologies](#technologies)
+
 
  
 ## Description
@@ -11,3 +13,14 @@
 Users can create albums with photos they'd would like to keep together and comment on the photos. 
 
 
+## Technologies
+ - Javascript
+ - PostgresSQL
+ - HTML/CSS
+ - React
+ - Redux
+ - Express
+ - Sequelize
+ - Bcrypt
+
+ 
