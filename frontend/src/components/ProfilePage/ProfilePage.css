@@ -18,7 +18,6 @@
 
 .mainPhotos {
   position: relative;
-  min-height: 62vh;
   display: flex;
   justify-content: center;
   margin: 80px;

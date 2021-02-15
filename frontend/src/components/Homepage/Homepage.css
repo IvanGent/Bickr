@@ -36,7 +36,8 @@
 
 .userMain {
   /* background-color: red; */
-  height: 94vh;
+  /* height: 94vh; */
+  height: 100%;
   width: 100vw;
   position: absolute;
   /* margin-top: 100px; */

@@ -1,21 +1,31 @@
 .footer {
+  background-color: black;
+  /* background-color: red; */
   position: absolute;
-  /* bottom: 0; */
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+}
+
+/* .footer {
+  position: absolute;
+  bottom: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-}
 
-.footer footer {
+} */
+
+/* .footer footer {
   background-color: black;
   height: 60px;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.footer footer a {
+/* .footer footer a {
   font-family: Arial, Helvetica, sans-serif;
   color: gray;
-}
+} */
