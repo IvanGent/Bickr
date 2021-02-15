@@ -25,6 +25,11 @@ const LoginFormPage = () => {
       });
   }
 
+  const handleDemoLogin = () => {
+    setCredential('demo@user.io')
+    setPassword('password')
+    dispatch(sessionActions.login({credential, password }))
+  }
 
   return (
     <div className='loginContainer'>
@@ -57,6 +62,7 @@ const LoginFormPage = () => {
         />
         <div className='buttonDiv'>
           <button type='submit'>Log In</button>
+          <button onClick={handleDemoLogin}>Demo Login</button>
         </div>
       </form>
     </div>
