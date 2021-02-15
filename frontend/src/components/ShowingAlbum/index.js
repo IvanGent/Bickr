@@ -38,9 +38,7 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
                 {albumInfo.userId === userId && (
-                    // <div>
-                        <button id='deleteAlbum' onClick={handleDeleteAlbum}>Delete Album</button>
-                    // </div>
+                    <button id='deleteAlbum' onClick={handleDeleteAlbum}>Delete Album</button>
                 )}
                 {loaded ? (
                     <>
@@ -58,7 +56,6 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
                             <h3 id='noPhotos' >No Photos</h3>
                             <img id='stockPhoto' src={AlbumStock} alt='Stock no photos' />
                         </div>
-                        // <h3>Loading...</h3>
                     )}
                     </>
                 ): (

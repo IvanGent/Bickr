@@ -16,7 +16,6 @@ const Comment = () => {
   const [comment, setComment] = useState('');
   const [errors, setErrors] = useState([]);
 
-  // console.log(photoComments);
   useEffect(() => {
     (async () => {
       const res = await fetch(`/api/comment/${id}`)
@@ -40,7 +39,6 @@ const Comment = () => {
   } else {
     body = <div>No comments</div>
   }
-  // console.log(comments);
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!comment.length) {

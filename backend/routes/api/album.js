@@ -57,7 +57,6 @@ router.delete('/:id', asyncHandler(async(req, res) => {
         }
     })
     const mess = await Album.deleteAlbum({id});
-    console.log(mess)
     return res.json({
         mess
     });
@@ -65,7 +64,6 @@ router.delete('/:id', asyncHandler(async(req, res) => {
 
 router.post('/photo', asyncHandler(async(req, res) => {
     const { albumId, photos } = req.body;
-    console.log(photos)
     photos.forEach(id => {
         AlbumPhoto.addPhoto({
             albumId,

@@ -27,11 +27,9 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const id = req.params.id;
-  // const photo = await Photo.findPhoto(id)
   const photo = await Photo.scope('main').findByPk(id, {
     include: User
   });
-  console.log(photo.Comments);
   return res.json({
     photo,
   });
@@ -54,7 +52,6 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 }));
 
 router.post('/:id/comment', asyncHandler(async (req, res) => {
-  console.log(req.body);
   const id = req.params.id;
   const { comment, userId } = req.body
   const newComment = await Comment.addAComment({

@@ -4,7 +4,6 @@ const ADD_PHOTO = 'photo/addPhoto';
 const UPDATE_STATE = 'photo/updateState';
 const GET_STATE = 'photo/getState';
 const DELETE_PHOTO = 'photo/deletePhoto'
-// const RESET = 'photo/resetState'
 
 const addPhoto = (photo) => {
   return {
@@ -32,11 +31,6 @@ const deletePhoto = () => {
   }
 }
 
-// const resetState = () => {
-//   return {
-//     type: RESET,
-//   }
-// }
 export const gettingState = () => (dispatch) => {
   dispatch(getState());
   return
@@ -52,8 +46,6 @@ export const addPhotoToProfile = (photo) => async (dispatch) => {
       src
     })
   });
-  // console.log(photo)
-  // console.log(res)
   await dispatch(addPhoto(res.data.photo));
   return res;
 }
@@ -72,14 +64,9 @@ export const deleteAPhoto = ({id, userId}) => async (dispatch) => {
     method: 'DELETE'
   })
   dispatch(deletePhoto())
-  // updatingState(userId);
   return res;
 }
 
-export const reset = () => (dispatch) => {
-  dispatch(reset());
-  return
-}
 
 let initialState = {photos: [] }
 

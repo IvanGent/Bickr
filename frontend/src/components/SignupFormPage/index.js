@@ -41,7 +41,6 @@ const SignupFormPage = () => {
         <ul>
          {errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
-        {/* <label>First Name</label> */}
         <input
           type='text'
           value={firstName}
@@ -49,7 +48,6 @@ const SignupFormPage = () => {
           placeholder='First Name'
           required
         />
-        {/* <label>Last Name</label> */}
         <input
         type='text'
         value={lastName}
@@ -57,7 +55,6 @@ const SignupFormPage = () => {
         placeholder='Last Name'
         required
         />
-        {/* <label>Email</label> */}
         <input
           type='email'
           value={email}
@@ -65,7 +62,6 @@ const SignupFormPage = () => {
           placeholder='Email'
           required
         />
-        {/* <label>Password</label> */}
         <input
           type='password'
           value={password}
@@ -73,7 +69,6 @@ const SignupFormPage = () => {
           placeholder='Password'
           required
         />
-        {/* <label>Confirm Password</label> */}
         <input
           type='password'
           value={confirmPassword}

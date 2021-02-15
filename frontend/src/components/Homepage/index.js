@@ -99,7 +99,6 @@ const Homepage = () => {
 
   return (
     <>
-      {/* <div className='fillerHome'></div> */}
       {sessionBody}
     </>
   );

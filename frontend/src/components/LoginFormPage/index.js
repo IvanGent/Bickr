@@ -44,7 +44,6 @@ const LoginFormPage = () => {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        {/* <label>Email</label> */}
         <input
           type='text'
           value={credential}
@@ -52,7 +51,6 @@ const LoginFormPage = () => {
           placeholder='Email'
           required
         />
-        {/* <label>Password</label> */}
         <input
           type='password'
           value={password}

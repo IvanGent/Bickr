@@ -20,10 +20,6 @@ const validateSignup = [
   check('lastName')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a Last Name'),
-  // check('username')
-  //   .not()
-  //   .isEmail()
-  //   .withMessage('Username cannot be an email.'),
   check('password')
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })

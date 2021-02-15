@@ -5,7 +5,6 @@ import * as photoActions from '../../store/photos';
 import { fetch } from '../../store/csrf';
 import Comment from '../Comment';
 import './Picture.css'
-import Footer from '../Footer';
 
 const Picture = () => {
   const dispatch = useDispatch();

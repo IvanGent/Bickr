@@ -40,7 +40,6 @@ export const addingComment = (com) => async(dispatch) => {
 
 export const updatingState = (photoId) => async(dispatch) => {
   const res = await fetch(`/api/comment/${photoId}`);
-  // console.log(res.data.comments)
   dispatch(updateState(res.data.comments))
   return res;
 }
