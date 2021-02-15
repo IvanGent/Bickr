@@ -5,6 +5,7 @@ import * as photoActions from '../../store/photos';
 import { fetch } from '../../store/csrf';
 import Comment from '../Comment';
 import './Picture.css'
+import Footer from '../Footer';
 
 const Picture = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,6 @@ const Picture = () => {
         <div>
           <p onClick={e => history.goBack()}>Go back</p>
           <img src={photo.src} alt='' />
-          {/* <h2>{photo.User.firstName}</h2> */}
           <div className='userName'>
             <NavLink to={`/profile/${photo.User.id}`}>{photo.User.firstName} {photo.User.lastName}</NavLink>
           </div>
