@@ -4,7 +4,7 @@
 - [Bickr](#bickr)
   - [Description](#description)
   - [Technologies](#technologies)
-
+  - [Frontend Overview](#frontend-overview)
 
  
 ## Description
@@ -23,4 +23,10 @@ Users can create albums with photos they'd would like to keep together and comme
  - Sequelize
  - Bcrypt
 
- 
+
+ ## Frontend Overview 
+
+Bickr utilizes React to have the ability to update only the components that need
+updating, it keeps the user engaged with the site. Those updates are being done with AJAX, so theres no need for the page to refresh.
+
+## AJAX
