@@ -34,7 +34,7 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
     }
 
     return (
-        <div className='AlbumCont'>
+        <div>
             <div className='albumContents'>
                 <h1>{albumInfo.name}</h1>
                 {albumInfo.userId === userId && (
