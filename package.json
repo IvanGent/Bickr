@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/IvanGent/Bickr/issues"
   },
-  "homepage": "https://github.com/IvanGent/Bickr#readme"
+  "homepage": "https://github.com/IvanGent/Bickr#readme",
+  "dependencies": {
+    "sequelize": "^6.5.0"
+  }
 }
