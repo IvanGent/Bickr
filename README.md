@@ -88,4 +88,5 @@ The code snippet below is the end result
   }
 ```
 
-When a user uploads a photo it first checks if the file type is an image. The onload method on the reader object is triggered when the reader object successfully reads the file. 
+When a user uploads a photo it first checks if the file type is an image. The onload method on the reader object is triggered when the file is successfully read. The decision to resize the image came after adding a few photos (like 4) and querying for them to display them took a few seconds which is way too long.
+Resizing the image and saving both the resized DataURL and the original DataURL helps with time significantly. The thumbSrc DataURL is being used on the main page and on the profile page, when an image is clicked on, a call for the original size is made and displayed.
