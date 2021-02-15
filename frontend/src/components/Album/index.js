@@ -53,9 +53,7 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
                 photos
             })
         })
-        const als = await fetch(`/api/album/user/${id}`)
         await dispatch(albumActions.updatingAlbum({id}))
-        // setAlbums(als.data.allAlbums);
         setShowAlbum(true);
     };
 
@@ -73,7 +71,6 @@ const Album = ({ setShowAlbum, showAlbum, showingAlbum, setShowingAlbum }) => {
     }
 
     const handleShowAlbum = (e) => {
-        // console.log(e.target.id)
         setSelectedAlbum(e.target.id);
         setShowingAlbum(true);
     }
