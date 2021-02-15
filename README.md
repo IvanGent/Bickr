@@ -5,8 +5,10 @@
   - [Description](#description)
   - [Technologies](#technologies)
   - [Frontend Overview](#frontend-overview)
+  - [Backend Overview](#backend-overview)
   - [AJAX](#ajax)
-  -[Early Complications](#early-complications)
+  - [Early Complications](#early-complications)
+  - [Conclusion, Next Steps](#conclusion,-next-steps)
 
  
 ## Description
@@ -30,6 +32,11 @@ Users can create albums with photos they'd would like to keep together and comme
 
 Bickr utilizes React to have the ability to update only the components that need
 updating, it keeps the user engaged with the site. Those updates are being done with AJAX, so theres no need for the page to refresh.
+
+
+## Backend Overview
+
+Used various RESTful APIs to query the database to information needed for the frontend. Utilized Sequelize ORM to generate tables, create join tables and foreign key constraints to connect tables.
 
 
 ## AJAX
@@ -90,3 +97,11 @@ The code snippet below is the end result
 
 When a user uploads a photo it first checks if the file type is an image. The onload method on the reader object is triggered when the file is successfully read. The decision to resize the image came after adding a few photos (like 4) and querying for them to display them took a few seconds which is way too long.
 Resizing the image and saving both the resized DataURL and the original DataURL helps with time significantly. The thumbSrc DataURL is being used on the main page and on the profile page, when an image is clicked on, a call for the original size is made and displayed.
+
+
+## Conclusion, Next Steps
+
+Being my first solo full-stack web application, there were a few challenges but I very happy with the outcome. Continuing the make and contribute to projects sharpens my problem-solving and just coding skills in general. It is deployed (live site at the top of the README) but I will continue to contribute to this project because there is always room for improvement.
+
+
+Thank you for reading!
