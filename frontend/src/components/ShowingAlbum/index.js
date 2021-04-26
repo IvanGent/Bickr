@@ -24,7 +24,7 @@ const ShowngAlbum = ({ album, setShowingAlbum }) => {
             setAlbum(res.data.album.AlbumPhotos);
             setLoaded(true);
         })()
-
+        // eslint-disable-next-line
     }, [])
 
     const handleDeleteAlbum = async () => {

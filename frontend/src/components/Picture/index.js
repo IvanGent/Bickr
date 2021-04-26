@@ -48,6 +48,7 @@ const Picture = () => {
       }
       body = (
         <div>
+          <div>{errors.map(error => <div>{error}</div>)}</div>
           <p onClick={e => history.goBack()}>Go back</p>
           <img src={photo.src} alt='' />
           <div className='userName'>
