@@ -16,8 +16,6 @@ WORKDIR /backend
 COPY backend/. .
 ENV NODE_ENV=production
 
-WORKDIR /
-
 # WORKDIR /frontend
 # COPY frontend/. .
 
@@ -29,4 +27,4 @@ WORKDIR /
 
 
 
-CMD ["npm","run","start"]
+CMD ["npm","run","start:production"]
