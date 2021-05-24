@@ -19,6 +19,7 @@ ENV NODE_ENV=production
 # WORKDIR /frontend
 # COPY frontend/. .
 RUN npm install
+RUN npm install sequelize-cli
 
 # RUN npm install && npm run build
 
