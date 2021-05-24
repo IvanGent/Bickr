@@ -10,7 +10,7 @@ ENV REACT_APP_BASE_URL=https://git.heroku.com/bickr-app.git
 
 RUN npm install && npm run build
 
-EXPOSE 5432
+EXPOSE 5000
 
 WORKDIR /backend
 COPY backend/. .
@@ -29,6 +29,4 @@ WORKDIR /
 
 
 
-CMD ["npm","run","start", "gunicorn", "app:app"]
-
-
+CMD ["npm","run","start"]
