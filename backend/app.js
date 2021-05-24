@@ -17,6 +17,7 @@ app.use(morgan("dev"));
 
 app.use(cookieParser());
 app.use(express.json({limit: '50mb'}));
+app.use(express.static(__dirname));
 
 // Security Middleware
 if (!isProduction) {
